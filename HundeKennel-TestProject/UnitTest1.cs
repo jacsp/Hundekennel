@@ -1,13 +1,13 @@
-using ModernDesign.MVVM.Model;
+﻿
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Hundekennel_TestProject
 
 {
-    
+
     [TestClass]
     public class UnitTest1
     {
-            
+
 
         [TestInitialize]
         public void TestInitialize()
@@ -24,7 +24,7 @@ namespace Hundekennel_TestProject
         [TestCleanup]
         public void TestCleanup()
         {
-                
+
         }
 
         [TestMethod]
@@ -34,6 +34,6 @@ namespace Hundekennel_TestProject
         }
 
     }
-    
+
 
 }

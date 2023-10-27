@@ -5,7 +5,9 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModernDesign", "ModernDesign.csproj", "{26301F90-70B0-4270-83A7-8F265B606F31}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hundekennel_TestProject", "..\Hundekennel_TestProject\Hundekennel_TestProject.csproj", "{885D56FC-7FB9-4255-99BD-3951D10575CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hundekennel_TestProject", "..\Hundekennel_TestProject\Hundekennel_TestProject.csproj", "{885D56FC-7FB9-4255-99BD-3951D10575CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HundeKennel-TestProject", "..\HundeKennel-TestProject\HundeKennel-TestProject.csproj", "{454FDA95-7C9F-4BF1-ACD9-335F7474F54F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{885D56FC-7FB9-4255-99BD-3951D10575CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{885D56FC-7FB9-4255-99BD-3951D10575CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{885D56FC-7FB9-4255-99BD-3951D10575CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{454FDA95-7C9F-4BF1-ACD9-335F7474F54F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{454FDA95-7C9F-4BF1-ACD9-335F7474F54F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{454FDA95-7C9F-4BF1-ACD9-335F7474F54F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{454FDA95-7C9F-4BF1-ACD9-335F7474F54F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
