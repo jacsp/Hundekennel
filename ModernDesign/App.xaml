@@ -1,0 +1,28 @@
+﻿<Application
+    x:Class="ModernDesign.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:ModernDesign"
+    xmlns:view="clr-namespace:ModernDesign.MVVM.View"
+    xmlns:viewModel="clr-namespace:ModernDesign.MVVM.ViewModel"
+    StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Theme/MenuButtonTheme.xaml" />
+                <ResourceDictionary Source="Theme/SearchBoxTheme.xaml" />
+                <ResourceDictionary Source="Theme/WindowButtonTheme.xaml" />
+                <ResourceDictionary Source="Theme/ScrollViewTheme.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
+                <view:HomeView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:MoviesViewModel}">
+                <view:MoviesView />
+            </DataTemplate>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
