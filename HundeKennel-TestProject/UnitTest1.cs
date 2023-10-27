@@ -1,4 +1,4 @@
-﻿
+﻿using ModernDesign.MVM.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Hundekennel_TestProject
 

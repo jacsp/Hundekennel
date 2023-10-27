@@ -6,8 +6,32 @@ using System.Threading.Tasks;
 
 namespace ModernDesign.MVVM.Model
 {
-    class Dog
+    public class Dog
     {
-         
+        public string PedigreeNumber { get; set; }
+        public string Name { get; set; }
+        public DateTime DOB { get; set; }
+        public string DadPedigreeNumber { get; set; }
+        public string MomPedigreeNumber { get; set; }
+        public GenderType GenderType { get; }
+        public GenderType Gender { get; set; }
+        public bool IsDead { get; set; }
+
+        public Dog(string pedigreeNumber,
+                   string name,
+                   DateTime DOB,
+                   string dadPedigreeNumber,
+                   string momPedigreeNumber,
+                   GenderType genderType,
+                   bool isDead)
+        {
+            PedigreeNumber = pedigreeNumber;
+            Name = name;
+            this.DOB = DOB;
+            DadPedigreeNumber = dadPedigreeNumber;
+            MomPedigreeNumber = momPedigreeNumber;
+            GenderType = genderType;
+            IsDead = isDead;
+        }
     }
 }
