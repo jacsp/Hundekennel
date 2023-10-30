@@ -1,19 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RLo3GGvS9e2FPSR8asn2IkbQnsVyl+sI3aP2CcCmKTVhzRBT+9hV0jSXtAk6728dbCjrW30yw9CvkYrDxpTK0Q==",
+  "dgSpecHash": "9u49QXwu9MrCFAooMofa/CZ/qABiyDyLYSUlV8Rf9hsX2u985EcrLekSOk/dMcHiySn6JuMyGz75qzcQjVn0AQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\trygvebechsgaard\\source\\repos\\Hundekennel\\Hundekennel_TestProject\\Hundekennel_TestProject.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\trygvebechsgaard\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
-    "C:\\Users\\trygvebechsgaard\\.nuget\\packages\\microsoft.codecoverage\\17.6.0\\microsoft.codecoverage.17.6.0.nupkg.sha512",
-    "C:\\Users\\trygvebechsgaard\\.nuget\\packages\\microsoft.net.test.sdk\\17.6.0\\microsoft.net.test.sdk.17.6.0.nupkg.sha512",
-    "C:\\Users\\trygvebechsgaard\\.nuget\\packages\\microsoft.testplatform.objectmodel\\17.6.0\\microsoft.testplatform.objectmodel.17.6.0.nupkg.sha512",
-    "C:\\Users\\trygvebechsgaard\\.nuget\\packages\\microsoft.testplatform.testhost\\17.6.0\\microsoft.testplatform.testhost.17.6.0.nupkg.sha512",
-    "C:\\Users\\trygvebechsgaard\\.nuget\\packages\\mstest.testadapter\\3.0.4\\mstest.testadapter.3.0.4.nupkg.sha512",
-    "C:\\Users\\trygvebechsgaard\\.nuget\\packages\\mstest.testframework\\3.0.4\\mstest.testframework.3.0.4.nupkg.sha512",
-    "C:\\Users\\trygvebechsgaard\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
-    "C:\\Users\\trygvebechsgaard\\.nuget\\packages\\nuget.frameworks\\5.11.0\\nuget.frameworks.5.11.0.nupkg.sha512",
-    "C:\\Users\\trygvebechsgaard\\.nuget\\packages\\system.reflection.metadata\\1.6.0\\system.reflection.metadata.1.6.0.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }
