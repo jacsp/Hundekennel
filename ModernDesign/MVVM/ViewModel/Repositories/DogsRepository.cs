@@ -71,16 +71,13 @@ namespace ModernDesign.MVVM.ViewModel.Repositories
                     data.GetString(data.GetOrdinal("MomPedigreeNumber")),
                     data.GetString(data.GetOrdinal("Gender")),
                     data.GetBoolean(data.GetOrdinal("IsDead"))
-                )
-                {
-                    PedigreeNumber = data.GetString(data.GetOrdinal("PedigreeNumber"))
-                })
+                ))
                 .ToList();
             }
             
         }
 
-        public Dog GetById(int id)
+        public Dog GetById(string id)
         {
             throw new NotImplementedException();
         }

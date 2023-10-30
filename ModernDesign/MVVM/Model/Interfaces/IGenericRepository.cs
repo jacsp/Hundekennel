@@ -10,7 +10,7 @@ namespace ModernDesign.MVVM.Model.Interfaces
     internal interface IGenericRepository<T> where T : class
     {
         IEnumerable<T> GetAll();
-        T GetById(int id);
+        T GetById(string id);
         IEnumerable<T> Find(Expression<Func<T, bool>> prediction);
         void AddRange(IEnumerable<T> entities);
         void Add(T entity);
