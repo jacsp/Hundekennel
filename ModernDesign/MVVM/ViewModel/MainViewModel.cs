@@ -10,7 +10,7 @@ namespace ModernDesign.MVVM.ViewModel
     internal class MainViewModel : ObservableObject
     {
 		public HomeViewModel HomeVM { get; set; }
-        public MoviesViewModel MoviesVM { get; set; }
+        public DogsViewModel MoviesVM { get; set; }
 
         public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand MoviesViewCommand { get; set; }
@@ -31,7 +31,7 @@ namespace ModernDesign.MVVM.ViewModel
         public MainViewModel()
         {
 			HomeVM = new HomeViewModel();
-			MoviesVM = new MoviesViewModel();	
+			MoviesVM = new DogsViewModel();	
 
 			CurrentView = HomeVM;
 

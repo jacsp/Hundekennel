@@ -5,7 +5,7 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModernDesign", "ModernDesign.csproj", "{26301F90-70B0-4270-83A7-8F265B606F31}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject-HundeKennel", "..\TestProject-HundeKennel\TestProject-HundeKennel.csproj", "{7F130E11-01BD-4A63-9D17-E32EA4415F37}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject-HundeKennel", "..\TestProject-HundeKennel\TestProject-HundeKennel.csproj", "{7F130E11-01BD-4A63-9D17-E32EA4415F37}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

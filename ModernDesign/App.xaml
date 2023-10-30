@@ -19,7 +19,7 @@
                 <view:HomeView />
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type viewModel:MoviesViewModel}">
+            <DataTemplate DataType="{x:Type viewModel:DogsViewModel}">
                 <view:MoviesView />
             </DataTemplate>
 

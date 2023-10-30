@@ -16,10 +16,12 @@ namespace ModernDesign.MVVM.Model
         public GenderType GenderType { get; }
         public GenderType Gender { get; set; }
         public bool IsDead { get; set; }
+        
+
 
         public Dog(string pedigreeNumber,
                    string name,
-                   DateTime DOB,
+                   DateTime dOB,
                    string dadPedigreeNumber,
                    string momPedigreeNumber,
                    GenderType genderType,
@@ -27,7 +29,7 @@ namespace ModernDesign.MVVM.Model
         {
             PedigreeNumber = pedigreeNumber;
             Name = name;
-            this.DOB = DOB;
+            DOB = dOB;
             DadPedigreeNumber = dadPedigreeNumber;
             MomPedigreeNumber = momPedigreeNumber;
             GenderType = genderType;
