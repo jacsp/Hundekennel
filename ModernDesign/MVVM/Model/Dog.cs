@@ -13,8 +13,7 @@ namespace ModernDesign.MVVM.Model
         public DateTime DOB { get; set; }
         public string DadPedigreeNumber { get; set; }
         public string MomPedigreeNumber { get; set; }
-        public GenderType GenderType { get; }
-        public GenderType Gender { get; set; }
+        public string Gender { get; set; }
         public bool IsDead { get; set; }
         
 
@@ -24,7 +23,7 @@ namespace ModernDesign.MVVM.Model
                    DateTime dOB,
                    string dadPedigreeNumber,
                    string momPedigreeNumber,
-                   GenderType genderType,
+                   string gender,
                    bool isDead)
         {
             PedigreeNumber = pedigreeNumber;
@@ -32,7 +31,7 @@ namespace ModernDesign.MVVM.Model
             DOB = dOB;
             DadPedigreeNumber = dadPedigreeNumber;
             MomPedigreeNumber = momPedigreeNumber;
-            GenderType = genderType;
+            Gender = gender;
             IsDead = isDead;
         }
     }
