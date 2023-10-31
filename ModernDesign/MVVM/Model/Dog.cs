@@ -21,33 +21,15 @@ namespace ModernDesign.MVVM.Model
         public string Titles { get; set; }
         public bool BreedingStatus { get; set; }
         public bool MentalDescription { get; set; }
-        public BinaryData Picture { get; set; }
-        public Illness Health { get; set; }
-        public ColorType Color { get; set; }
-        public BreedingApprovalType BreedingApproval { get; set; }
+        public byte[] Picture { get; set; }
+        public string HD { get; set; }
+        public string AD { get; set; }
+        public string HZ { get; set; }
+        public string SP { get; set; }
+        public string Color { get; set; }
+        public bool BreedingApproval { get; set; }
 
-        public Dog(string pedigreeNumber, string name, DateTime dOB, string dadPedigreeNumber, 
-            string momPedigreeNumber, string gender, bool isDead, string chipNumber, string dKKTitles, 
-            string titles, bool breedingStatus, bool mentalDescription, BinaryData picture,
-            Illness health, ColorType color, BreedingApprovalType breedingApproval)
-        {
-            PedigreeNumber = pedigreeNumber;
-            Name = name;
-            DOB = dOB;
-            DadPedigreeNumber = dadPedigreeNumber;
-            MomPedigreeNumber = momPedigreeNumber;
-            Gender = gender;
-            IsDead = isDead;
-            ChipNumber = chipNumber;
-            DKKTitles = dKKTitles;
-            Titles = titles;
-            BreedingStatus = breedingStatus;
-            MentalDescription = mentalDescription;
-            Picture = picture;
-            Health = health;
-            Color = color;
-            BreedingApproval = breedingApproval;
-        }
+        
 
         public Dog(string pedigreeNumber,
                    string name,
@@ -64,6 +46,32 @@ namespace ModernDesign.MVVM.Model
             MomPedigreeNumber = momPedigreeNumber;
             Gender = gender;
             IsDead = isDead;
+        }
+
+        public Dog(string pedigreeNumber, string name, DateTime dOB, string dadPedigreeNumber, 
+            string momPedigreeNumber, string gender, bool isDead, string chipNumber, 
+            string dKKTitles, string titles, bool breedingStatus, bool mentalDescription, 
+            byte[] picture, string hD, string aD, string hZ, string sP, string color, bool breedingApproval)
+        {
+            PedigreeNumber = pedigreeNumber;
+            Name = name;
+            DOB = dOB;
+            DadPedigreeNumber = dadPedigreeNumber;
+            MomPedigreeNumber = momPedigreeNumber;
+            Gender = gender;
+            IsDead = isDead;
+            ChipNumber = chipNumber;
+            DKKTitles = dKKTitles;
+            Titles = titles;
+            BreedingStatus = breedingStatus;
+            MentalDescription = mentalDescription;
+            Picture = picture;
+            HD = hD;
+            AD = aD;
+            HZ = hZ;
+            SP = sP;
+            Color = color;
+            BreedingApproval = breedingApproval;
         }
     }
 }
