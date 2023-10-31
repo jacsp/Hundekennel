@@ -9,7 +9,7 @@ using System.Data;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace ModernDesign.MVVM.ViewModel.Repositories
+namespace ModernDesign.MVVM.Model.Repositories
 {
     public class DogsRepository : IDogsRepository
     {

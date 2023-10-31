@@ -1,6 +1,6 @@
 ﻿using ModernDesign.Core;
 using ModernDesign.MVVM.Model;
-using ModernDesign.MVVM.ViewModel.Repositories;
+using ModernDesign.MVVM.Model.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

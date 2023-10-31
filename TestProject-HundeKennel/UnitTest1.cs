@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ModernDesign.MVVM.Model;
-using ModernDesign.MVVM.ViewModel.Repositories;
+using ModernDesign.MVVM.Model.Repositories;
 using System;
 using System.Collections.ObjectModel;
 

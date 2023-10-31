@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TestProject-HundeKennel")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5018c39f896031ca5093a2643ecd15049bae79aa")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a4e5a474256433e52eeee3156f4a3714508f2aa2")]
 [assembly: System.Reflection.AssemblyProductAttribute("TestProject-HundeKennel")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TestProject-HundeKennel")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
