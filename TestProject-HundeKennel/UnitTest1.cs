@@ -16,7 +16,7 @@ namespace TestProject_HundeKennel
         [TestInitialize]
         public void TestInitialize()
         {
-            dog1 = new Dog("1", "Jon", new DateTime(1/10/2023), "123/41", "123/40", "Male", false);
+            dog1 = new Dog("123/39", "Jon", new DateTime(1/10/2023), "123/41", "123/40", "Male", false);
             dog2 = new Dog("123/40", "Jane", new DateTime(2020 / 10 / 1), "456/13", "678/13", "Female", false);
             dog3 = new Dog("123/41", "Tim", new DateTime(2021 / 10 / 1), "456/11", "678/11", "Male", false);
             
@@ -29,19 +29,26 @@ namespace TestProject_HundeKennel
         [TestCleanup]
         public void TestCleanup()
         {
-            
+            dr.Remove(dog1);
+            dr.Remove(dog2);
+            dr.Remove(dog3);
         }
         [TestMethod]
         public void Dog_BothPedigreeNumberAreEqual_ReturnsPedigreeNumber()
         {
-            Assert.AreEqual("1", dog1.PedigreeNumber);
+            Assert.AreEqual("123/39", dog1.PedigreeNumber);
         }
+
         [TestMethod]
         public void GetById_NameIsEqualTo_ReturnedName()
         {
-            Dog retrievedDog = dr.GetById(dog1.PedigreeNumber);
-            Assert.AreEqual("Jon", retrievedDog.Name);
+            string dogId = dog1.PedigreeNumber;
+            Dog retrievedDog = dr.GetById(dogId);
+            string retrievedDogName = retrievedDog.Name;
+           
+            Assert.AreEqual("Jon", retrievedDogName);
         }
+
         [TestMethod]
         public void GetAll_AllNamesAreEqualTo_ReturnedNamesFromList()
         {

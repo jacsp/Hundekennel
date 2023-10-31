@@ -10,6 +10,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace ModernDesign.MVVM.ViewModel.Repositories
 {
@@ -17,7 +18,7 @@ namespace ModernDesign.MVVM.ViewModel.Repositories
     {
         private readonly string ConnectionString;
 
-        public ObservableCollection<Dog> dogs = new ObservableCollection<Dog>();
+        public ObservableCollection<Dog> dogs;
 
         public DogsRepository()
         {
@@ -28,11 +29,12 @@ namespace ModernDesign.MVVM.ViewModel.Repositories
 
         public void Add(Dog entity)
         {
+            dogs = new ObservableCollection<Dog>();
+
             using SqlConnection con = new SqlConnection(ConnectionString);
             con.Open();
-            using SqlCommand cmd = new SqlCommand("INSERT INTO hk_DOG (PedigreeNumber, Name, DOB, DadPedigreeNumber, MomPedigreeNumber, Gender, IsDead" +
-                                            " (@PedigreeNumber, @Name, @DOB, @DadPedigreeNumber, @MomPedigreeNumber, @Gender, @IsDead))", con);
-            
+            using SqlCommand cmd = new SqlCommand("INSERT INTO hk_DOG (PedigreeNumber, Name, DOB, DadPedigreeNumber, MomPedigreeNumber, Gender, IsDead) VALUES (@PedigreeNumber, @Name, @DOB, @DadPedigreeNumber, @MomPedigreeNumber, @Gender, @IsDead)", con);
+
             cmd.Parameters.Add("@PedigreeNumber", SqlDbType.NVarChar).Value = entity.PedigreeNumber;
             cmd.Parameters.Add("@Name", SqlDbType.NVarChar).Value = entity.Name;
             cmd.Parameters.Add("@DOB", SqlDbType.DateTime2).Value = entity.DOB;
@@ -41,8 +43,11 @@ namespace ModernDesign.MVVM.ViewModel.Repositories
             cmd.Parameters.Add("@Gender", SqlDbType.NVarChar).Value = entity.Gender;
             cmd.Parameters.Add("@IsDead", SqlDbType.Bit).Value = entity.IsDead;
 
+            cmd.ExecuteNonQuery();
+
             dogs.Add(entity);
         }
+
 
 
         public void AddRange(IEnumerable<Dog> entities)
@@ -57,6 +62,8 @@ namespace ModernDesign.MVVM.ViewModel.Repositories
 
         public IEnumerable<Dog> GetAll()
         {
+            dogs = new ObservableCollection<Dog>();
+
             using SqlConnection con = new SqlConnection(ConnectionString);
             con.Open();
             using SqlCommand cmd = new SqlCommand("SELECT * FROM hk_DOG", con);
@@ -109,8 +116,16 @@ namespace ModernDesign.MVVM.ViewModel.Repositories
 
         public void Remove(Dog entity)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("DELETE FROM hk_DOG WHERE PedigreeNumber = @Id", con);
+                cmd.Parameters.Add("@Id", SqlDbType.NVarChar).Value = entity.PedigreeNumber;
+                cmd.ExecuteNonQuery();
+            }
+            dogs.Remove(entity);
         }
+
 
         public void Save()
         {

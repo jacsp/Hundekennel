@@ -14,7 +14,7 @@ namespace ModernDesign.MVVM.Model.Interfaces
         IEnumerable<T> Find(Expression<Func<T, bool>> prediction);
         void AddRange(IEnumerable<T> entities);
         void Add(T entity);
-        void Remove(T entity);
+        void Remove(T entity);  
         void Update(T entity);
         void Save();
     }
