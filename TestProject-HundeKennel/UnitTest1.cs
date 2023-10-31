@@ -16,7 +16,7 @@ namespace TestProject_HundeKennel
         [TestInitialize]
         public void TestInitialize()
         {
-            dog1 = new Dog("1", "Jon", new DateTime(2023 / 10 / 1), "123/41", "123/40", "Male", false);
+            dog1 = new Dog("1", "Jon", new DateTime(1/10/2023), "123/41", "123/40", "Male", false);
             dog2 = new Dog("123/40", "Jane", new DateTime(2020 / 10 / 1), "456/13", "678/13", "Female", false);
             dog3 = new Dog("123/41", "Tim", new DateTime(2021 / 10 / 1), "456/11", "678/11", "Male", false);
             
@@ -45,13 +45,22 @@ namespace TestProject_HundeKennel
         [TestMethod]
         public void GetAll_AllNamesAreEqualTo_ReturnedNamesFromList()
         {
-            IEnumerable<Dog> result = dr.GetAll();
-            List<Dog> results = result.ToList();
+            List<Dog> result = dr.GetAll().ToList();
 
-            //Assert.AreEqual(3, result.Count);
-            Assert.AreEqual("Jon", results[1].Name);
-            //Assert.AreEqual("Jane", result[1].Name);
-            //Assert.AreEqual("Tim", result[2].Name);
+            Assert.AreEqual(3, result.Count);
+            Assert.AreEqual("Jon", result[0].Name);
+            Assert.AreEqual("Jane", result[1].Name);
+            Assert.AreEqual("Tim", result[2].Name);
+        }
+        [TestMethod]
+        public void GetAll_AllDateOfBirthAreEqualTo_ReturnedDateOfBirthFromList()
+        {
+            List<Dog> result = dr.GetAll().ToList();
+
+            Assert.AreEqual(3, result.Count);
+            Assert.AreEqual(new DateTime(1/10/2023), result[0].DOB.Date);
+            Assert.AreEqual(new DateTime(1/10/2020), result[1].DOB.Date);
+            Assert.AreEqual(new DateTime(1/10/2021), result[2].DOB.Date);
         }
 
     }

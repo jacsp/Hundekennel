@@ -62,24 +62,49 @@ namespace ModernDesign.MVVM.ViewModel.Repositories
             using SqlCommand cmd = new SqlCommand("SELECT * FROM hk_DOG", con);
             using (SqlDataReader dr = cmd.ExecuteReader())
             {
-                return dr.Cast<IDataRecord>()
-                .Select(data => new Dog(
-                    data.GetString(data.GetOrdinal("PedigreeNumber")),
-                    data.GetString(data.GetOrdinal("Name")),
-                    data.GetDateTime(data.GetOrdinal("DOB")),
-                    data.GetString(data.GetOrdinal("DadPedigreeNumber")),
-                    data.GetString(data.GetOrdinal("MomPedigreeNumber")),
-                    data.GetString(data.GetOrdinal("Gender")),
-                    data.GetBoolean(data.GetOrdinal("IsDead"))
-                ))
-                .ToList();
+                while (dr.Read())
+                {
+                    Dog dog = new Dog(
+                        dr["PedigreeNumber"].ToString(),
+                        dr["Name"].ToString(),
+                        DateTime.Parse(dr["DOB"].ToString()),
+                        dr["DadPedigreeNumber"].ToString(),
+                        dr["MomPedigreeNumber"].ToString(),
+                        dr["Gender"].ToString(),
+                        Boolean.Parse(dr["IsDead"].ToString()));
+
+                    dogs.Add(dog);
+                }   
             }
-            
+            return dogs;
         }
 
         public Dog GetById(string id)
         {
-            throw new NotImplementedException();
+            Dog dog = null;
+
+            using SqlConnection con = new SqlConnection(ConnectionString);
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("SELECT * FROM hk_DOG WHERE PedigreeNumber = @Id", con);
+                cmd.Parameters.AddWithValue("@Id", id);
+
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    if (dr.Read())
+                    {
+                        dog = new Dog(
+                            dr["PedigreeNumber"].ToString(),
+                            dr["Name"].ToString(),
+                            DateTime.Parse(dr["DOB"].ToString()),
+                            dr["DadPedigreeNumber"].ToString(),
+                            dr["MomPedigreeNumber"].ToString(),
+                            dr["Gender"].ToString(),
+                            Boolean.Parse(dr["IsDead"].ToString()));
+                    }
+                }
+            }
+            return dog;
         }
 
         public void Remove(Dog entity)

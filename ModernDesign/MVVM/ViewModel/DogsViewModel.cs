@@ -19,7 +19,6 @@ namespace ModernDesign.MVVM.ViewModel
         {
             _dogsRepository = new DogsRepository();
             dogs = _dogsRepository.dogs;
-            dogs = (ObservableCollection<Dog>)_dogsRepository.GetAll();
         }
 
         public void AddDog(Dog dog)
