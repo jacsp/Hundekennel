@@ -42,7 +42,7 @@
                         <GridView>
                             <GridViewColumn Header="Stamtavle" Width="60" DisplayMemberBinding="{Binding PedigreeNumber}" />
                             <GridViewColumn Header="Navn" Width="60" DisplayMemberBinding="{Binding Name}" />
-                            <GridViewColumn Header="Fødselsdato" Width="100" DisplayMemberBinding="{Binding DOB}" />
+                            <GridViewColumn Header="Fødselsdato" Width="100" DisplayMemberBinding="{Binding DOB, StringFormat=dd/mm/yyyy}" />
                             <GridViewColumn Header="Køn" Width="60" DisplayMemberBinding="{Binding Gender}" />
                             <GridViewColumn Header="Farve" Width="60" DisplayMemberBinding="{Binding Color}" />
                             <GridViewColumn Header="HD" Width="60" DisplayMemberBinding="{Binding HD}" />

@@ -99,6 +99,11 @@ namespace ModernDesign.MVVM.Model.Repositories
                         dr["Color"].ToString(),
                         Convert.ToBoolean(dr["BreedingApproval"])
                     );
+                    if (dog.DOB < DateTime.Now.AddYears(-15))
+                    {
+                        dog.IsDead = true;
+                    }
+                    
 
                     dogs.Add(dog);
                 }
