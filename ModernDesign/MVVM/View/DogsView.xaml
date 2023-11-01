@@ -35,9 +35,8 @@
                     </Style>
                 </ScrollViewer.Resources>
 
-                <ListView x:Name="lv_Dogs" ItemsSource="{Binding Dogs}" 
-                          Background="#5426EB" Foreground="White"
-                          BorderThickness="0">
+                <ListView x:Name="lv_Dogs" ItemsSource="{Binding Dogs}" Style="{StaticResource ListViewTheme}">
+
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Stamtavle" Width="60" DisplayMemberBinding="{Binding PedigreeNumber}" />

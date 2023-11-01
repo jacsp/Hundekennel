@@ -13,6 +13,8 @@
                 <ResourceDictionary Source="Theme/SearchBoxTheme.xaml" />
                 <ResourceDictionary Source="Theme/WindowButtonTheme.xaml" />
                 <ResourceDictionary Source="Theme/ScrollViewTheme.xaml" />
+                <ResourceDictionary Source="Theme/ListViewTheme.xaml" />
+                
             </ResourceDictionary.MergedDictionaries>
 
             <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">

@@ -24,14 +24,7 @@ namespace ModernDesign.MVVM.Model.Repositories
 
         public void Add(Dog entity)
         {
-            if (entity.DOB < DateTime.Now.AddYears(-15))
-            {
-                entity.IsDead = true;
-            }
-            if (entity.IsDead)
-            {
-                entity.BreedingStatus = false;
-            }
+            SetDefaultValues(entity);
 
             using SqlConnection con = new SqlConnection(ConnectionString);
             con.Open();
@@ -227,6 +220,18 @@ namespace ModernDesign.MVVM.Model.Repositories
                 existingDog.Color = entity.Color;
                 existingDog.BreedingApproval = entity.BreedingApproval;
 
+            }
+        }
+
+        public void SetDefaultValues(Dog dog)
+        {
+            if (dog.DOB < DateTime.Now.AddYears(-15))
+            {
+                dog.IsDead = true;
+            }
+            if (dog.IsDead)
+            {
+                dog.BreedingStatus = false;
             }
         }
     }
