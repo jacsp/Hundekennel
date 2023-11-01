@@ -24,6 +24,11 @@ namespace ModernDesign.MVVM.Model.Repositories
 
         public void Add(Dog entity)
         {
+            if (entity.DOB < DateTime.Now.AddYears(-15))
+            {
+                entity.IsDead = true;
+            }
+
             using SqlConnection con = new SqlConnection(ConnectionString);
             con.Open();
             using SqlCommand cmd = new SqlCommand("INSERT INTO Dogs (PedigreeNumber, Name, DOB, DadPedigreeNumber, " +
@@ -99,12 +104,6 @@ namespace ModernDesign.MVVM.Model.Repositories
                         dr["Color"].ToString(),
                         Convert.ToBoolean(dr["BreedingApproval"])
                     );
-                    if (dog.DOB < DateTime.Now.AddYears(-15))
-                    {
-                        dog.IsDead = true;
-                    }
-                    
-
                     dogs.Add(dog);
                 }
             }
