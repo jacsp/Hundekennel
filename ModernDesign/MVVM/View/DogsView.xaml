@@ -5,9 +5,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:ModernDesign.MVVM.View"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="450"
-    d:DesignWidth="800"
-    Background="#1b1b1b"
+    d:DesignHeight="700"
+    d:DesignWidth="1200"
     mc:Ignorable="d">
     <StackPanel>
         <TextBlock
@@ -18,7 +17,7 @@
             Text="Oversigt" />
 
         <Grid>
-            <ScrollViewer VerticalScrollBarVisibility="Hidden">
+            <ScrollViewer HorizontalScrollBarVisibility="Hidden">
                 <ScrollViewer.Resources>
                     <Style TargetType="ScrollViewer">
 
@@ -36,48 +35,24 @@
                     </Style>
                 </ScrollViewer.Resources>
 
-                <StackPanel Orientation="Vertical">
-                    <StackPanel Orientation="Horizontal">
-
-                        <StackPanel.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="Margin" Value="15,0,0,0" />
-                            </Style>
-
-                        </StackPanel.Resources>
-
-                        <Border
-                            Width="150"
-                            Height="150"
-                            Margin="0"
-                            Background="#26B2EB"
-                            CornerRadius="10" />
-
-                        <Border
-                            Width="150"
-                            Height="150"
-                            Background="#267BEB"
-                            CornerRadius="10" />
-
-                        <Border
-                            Width="150"
-                            Height="150"
-                            Background="#263DEB"
-                            CornerRadius="10" />
-
-                        <Border
-                            Width="150"
-                            Height="150"
-                            Background="#5426EB"
-                            CornerRadius="10" />
-
-                        <Border
-                            Width="150"
-                            Height="150"
-                            Background="#5426EB"
-                            CornerRadius="10" />
-                    </StackPanel>
-                </StackPanel>
+                <ListView x:Name="lv_Dogs" ItemsSource="{Binding Dogs}" 
+                          Background="#5426EB" Foreground="White"
+                          BorderThickness="0">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Stamtavle" Width="60" DisplayMemberBinding="{Binding PedigreeNumber}" />
+                            <GridViewColumn Header="Navn" Width="60" DisplayMemberBinding="{Binding Name}" />
+                            <GridViewColumn Header="Fødselsdato" Width="100" DisplayMemberBinding="{Binding DOB}" />
+                            <GridViewColumn Header="Køn" Width="60" DisplayMemberBinding="{Binding Gender}" />
+                            <GridViewColumn Header="Farve" Width="60" DisplayMemberBinding="{Binding Color}" />
+                            <GridViewColumn Header="HD" Width="60" DisplayMemberBinding="{Binding HD}" />
+                            <GridViewColumn Header="AD" Width="60" DisplayMemberBinding="{Binding AD}" />
+                            <GridViewColumn Header="HZ" Width="60" DisplayMemberBinding="{Binding HZ}" />
+                            <GridViewColumn Header="SP" Width="60" DisplayMemberBinding="{Binding SP}" />
+                            <GridViewColumn Header="Er Død" Width="60" DisplayMemberBinding="{Binding IsDead}" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
             </ScrollViewer>
         </Grid>
 
