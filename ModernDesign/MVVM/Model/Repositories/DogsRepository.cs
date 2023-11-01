@@ -28,6 +28,10 @@ namespace ModernDesign.MVVM.Model.Repositories
             {
                 entity.IsDead = true;
             }
+            if (entity.IsDead)
+            {
+                entity.BreedingStatus = false;
+            }
 
             using SqlConnection con = new SqlConnection(ConnectionString);
             con.Open();

@@ -50,6 +50,8 @@
                             <GridViewColumn Header="HZ" Width="60" DisplayMemberBinding="{Binding HZ}" />
                             <GridViewColumn Header="SP" Width="60" DisplayMemberBinding="{Binding SP}" />
                             <GridViewColumn Header="Er Død" Width="60" DisplayMemberBinding="{Binding IsDead}" />
+                            <GridViewColumn Header="Avlsstatus" Width="60" DisplayMemberBinding="{Binding BreedingStatus}" />
+                            <GridViewColumn Header="Alvskåring" Width="60" DisplayMemberBinding="{Binding BreedingApproval}" />
                         </GridView>
                     </ListView.View>
                 </ListView>

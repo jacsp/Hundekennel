@@ -85,5 +85,11 @@ namespace TestProject_HundeKennel
 
             Assert.IsTrue(retrievedDog.IsDead);
         }
+
+        [TestMethod]
+        public void BreedingStatus_WhenIsDeadIsTrue_ShouldBeFalse()
+        {
+            Assert.IsFalse(dog4.BreedingStatus);
+        }
     }
 }
