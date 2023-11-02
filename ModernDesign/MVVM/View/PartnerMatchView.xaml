@@ -1,31 +1,26 @@
-﻿<UserControl
-    x:Class="ModernDesign.MVVM.View.MoviesView"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:ModernDesign.MVVM.View"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="625"
-    d:DesignWidth="1000"
-    mc:Ignorable="d">
+﻿<UserControl x:Class="ModernDesign.MVVM.View.PartnerMatchView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ModernDesign.MVVM.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="625"
+             d:DesignWidth="1000"
+             >
     <StackPanel>
         <TextBlock
-            Margin="0,0,0,20"
-            HorizontalAlignment="Left"
-            FontSize="28"
-            Foreground="white"
-            Text="Oversigt" />
+        Margin="0,0,0,20"
+        HorizontalAlignment="Left"
+        FontSize="28"
+        Foreground="white"
+        Text="Oversigt" />
 
-        <Grid Height="450" Width="900">
-            <Border BorderThickness="1" BorderBrush="White">
-            <ScrollViewer 
-                          HorizontalScrollBarVisibility="Hidden"
-                          Height="450" BorderThickness="0">
+        <Grid>
+            <ScrollViewer Template="{DynamicResource ScrollViewerTemplate1}" HorizontalScrollBarVisibility="Hidden" Style="{StaticResource ScrollViewTheme}">
 
 
-                <ListView Width="900" BorderThickness="0" 
-                          x:Name="lv_Dogs" ItemsSource="{Binding Dogs}"  
-                          Style="{StaticResource ListViewTheme}">
+                <ListView Width="900" x:Name="lv_Dogs" ItemsSource="{Binding Dogs}"  Style="{StaticResource ListViewTheme}">
 
                     <ListView.View>
                         <GridView ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderTheme}">
@@ -48,7 +43,6 @@
 
                 </ListView>
             </ScrollViewer>
-            </Border>
         </Grid>
 
     </StackPanel>

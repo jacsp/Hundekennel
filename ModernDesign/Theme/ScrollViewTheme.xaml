@@ -38,8 +38,8 @@
     </Style>
 
     <Style x:Key="ScrollBarTheme" TargetType="{x:Type ScrollBar}">
-        <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false"/>
-        <Setter Property="Stylus.IsFlicksEnabled" Value="false"/>
+        <Setter Property="Stylus.IsPressAndHoldEnabled" Value="True"/>
+        <Setter Property="Stylus.IsFlicksEnabled" Value="True"/>
 
         <Setter Property="Width" Value="14"/>
         <Setter Property="Margin" Value="-14 0 0 0" />
@@ -57,14 +57,12 @@
                                     HorizontalAlignment="Center">
                                 
                                 <Track.DecreaseRepeatButton>
-                                    <RepeatButton Opacity="0" Command="{x:Static ScrollBar.PageUpCommand}" />
+                                    <RepeatButton Opacity="1" Command="{x:Static ScrollBar.PageUpCommand}" />
                                 </Track.DecreaseRepeatButton>
                                 <Track.IncreaseRepeatButton>
-                                    <RepeatButton Opacity="0" Command="{x:Static ScrollBar.PageDownCommand}" />
+                                    <RepeatButton Opacity="1" Command="{x:Static ScrollBar.PageDownCommand}" />
                                 </Track.IncreaseRepeatButton>
-                                <Track.Thumb>
-                                    <Thumb Style="{StaticResource ScrollBarThumbTheme  }" />
-                                </Track.Thumb>
+
                             </Track>
                         </Border>
                     </Grid>
