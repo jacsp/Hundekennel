@@ -6,8 +6,10 @@
              xmlns:local="clr-namespace:ModernDesign.MVVM.View"
              mc:Ignorable="d" 
              d:DesignHeight="625"
-             d:DesignWidth="1000"
-             >
+             d:DesignWidth="1000">
+   
+    
+    
     <StackPanel>
         <TextBlock
         Margin="0,0,0,20"
@@ -16,34 +18,13 @@
         Foreground="white"
         Text="Oversigt" />
 
-        <Grid>
-            <ScrollViewer Template="{DynamicResource ScrollViewerTemplate1}" HorizontalScrollBarVisibility="Hidden" Style="{StaticResource ScrollViewTheme}">
+        <Grid Height="450" Width="900">
+            <Border BorderThickness="1" BorderBrush="White">
 
-
-                <ListView Width="900" x:Name="lv_Dogs" ItemsSource="{Binding Dogs}"  Style="{StaticResource ListViewTheme}">
-
-                    <ListView.View>
-                        <GridView ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderTheme}">
-                            <GridViewColumn Header="Stamtavle" Width="80" DisplayMemberBinding="{Binding PedigreeNumber}" />
-                            <GridViewColumn Header="Navn" Width="60" DisplayMemberBinding="{Binding Name}" />
-                            <GridViewColumn Header="Fødselsdato" Width="100" DisplayMemberBinding="{Binding DOB, StringFormat=dd/mm/yyyy}" />
-                            <GridViewColumn Header="Køn" Width="60" DisplayMemberBinding="{Binding Gender}" />
-                            <GridViewColumn Header="Farve" Width="60" DisplayMemberBinding="{Binding Color}" />
-                            <GridViewColumn Header="HD" Width="60" DisplayMemberBinding="{Binding HD}" />
-                            <GridViewColumn Header="AD" Width="60" DisplayMemberBinding="{Binding AD}" />
-                            <GridViewColumn Header="HZ" Width="60" DisplayMemberBinding="{Binding HZ}" />
-                            <GridViewColumn Header="SP" Width="60" DisplayMemberBinding="{Binding SP}" />
-                            <GridViewColumn Header="Er Død" Width="60" DisplayMemberBinding="{Binding IsDead}" />
-                            <GridViewColumn Header="Avlsstatus" Width="80" DisplayMemberBinding="{Binding BreedingStatus}" />
-                            <GridViewColumn Header="Far" Width="60" DisplayMemberBinding="{Binding DadPedigreeNumber}" />
-                            <GridViewColumn Header="Mor" Width="60" DisplayMemberBinding="{Binding MomPedigreeNumber}" />
-
-                        </GridView>
-                    </ListView.View>
-
-                </ListView>
-            </ScrollViewer>
+            </Border>
         </Grid>
+
+
 
     </StackPanel>
 </UserControl>

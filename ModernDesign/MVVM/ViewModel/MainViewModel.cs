@@ -11,9 +11,11 @@ namespace ModernDesign.MVVM.ViewModel
     {
 		public HomeViewModel HomeVM { get; set; }
         public DogsViewModel MoviesVM { get; set; }
+        public PartnerMatchViewModel PartnerMatchVM { get; set; }
 
         public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand MoviesViewCommand { get; set; }
+        public RelayCommand PartnerMatchCommand { get; set; }
 
 
         private object _currentView;
@@ -31,7 +33,8 @@ namespace ModernDesign.MVVM.ViewModel
         public MainViewModel()
         {
 			HomeVM = new HomeViewModel();
-			MoviesVM = new DogsViewModel();	
+			MoviesVM = new DogsViewModel();
+			PartnerMatchVM = new PartnerMatchViewModel();
 
 			CurrentView = HomeVM;
 
@@ -43,6 +46,10 @@ namespace ModernDesign.MVVM.ViewModel
 			{
 				CurrentView = MoviesVM;
 			});
+            PartnerMatchCommand = new RelayCommand(o =>
+            {
+                CurrentView = PartnerMatchVM;
+            });
         }
 
     }

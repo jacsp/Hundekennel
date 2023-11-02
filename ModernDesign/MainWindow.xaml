@@ -93,6 +93,7 @@
 
                 <RadioButton
                     Height="50"
+                    Command="{Binding PartnerMatchCommand}"
                     Content="Partner Match"
                     FontSize="15"
                     Foreground="White"

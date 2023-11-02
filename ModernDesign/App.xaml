@@ -26,6 +26,10 @@
                 <view:MoviesView />
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type viewModel:PartnerMatchViewModel}">
+                <view:PartnerMatchView />
+            </DataTemplate>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>
