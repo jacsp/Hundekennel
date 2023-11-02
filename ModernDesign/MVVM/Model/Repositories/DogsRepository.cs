@@ -223,6 +223,24 @@ namespace ModernDesign.MVVM.Model.Repositories
             }
         }
 
+        public IEnumerable<Dog> MatchTwoDogsAndShowFamilyTree(Dog dog1, Dog dog2)
+        {
+            List<Dog> dogsFamilyTree = new List<Dog>();
+
+            AddDogAndAncestors(dogsFamilyTree, dog1);
+            AddDogAndAncestors(dogsFamilyTree, dog2);
+
+            return dogsFamilyTree;
+        }
+
+        private void AddDogAndAncestors(List<Dog> familyTree, Dog dog)
+        {
+            while (dog != null)
+            {
+                familyTree.Add(dog);
+                dog = GetById(dog.PedigreeNumber);
+            }
+        }
 
         public void SetDefaultValues(Dog dog)
         {
