@@ -223,6 +223,7 @@ namespace ModernDesign.MVVM.Model.Repositories
             }
         }
 
+
         public void SetDefaultValues(Dog dog)
         {
             if (dog.DOB < DateTime.Now.AddYears(-15))
