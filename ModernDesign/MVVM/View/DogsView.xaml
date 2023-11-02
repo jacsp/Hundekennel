@@ -20,26 +20,22 @@
             <ScrollViewer HorizontalScrollBarVisibility="Hidden">
                 <ScrollViewer.Resources>
                     <Style TargetType="ScrollViewer">
-
-
                         <Style.Triggers>
-
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter Property="HorizontalScrollBarVisibility" Value="Visible" />
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="False">
                                 <Setter Property="HorizontalScrollBarVisibility" Value="Hidden" />
                             </Trigger>
-
                         </Style.Triggers>
                     </Style>
                 </ScrollViewer.Resources>
 
-                <ListView x:Name="lv_Dogs" ItemsSource="{Binding Dogs}" Style="{StaticResource ListViewTheme}">
+                <ListView x:Name="lv_Dogs" ItemsSource="{Binding Dogs}"  Style="{StaticResource ListViewTheme}">
 
                     <ListView.View>
-                        <GridView>
-                            <GridViewColumn Header="Stamtavle" Width="60" DisplayMemberBinding="{Binding PedigreeNumber}" />
+                        <GridView ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderTheme}">
+                            <GridViewColumn Header="Stamtavle" Width="80" DisplayMemberBinding="{Binding PedigreeNumber}" />
                             <GridViewColumn Header="Navn" Width="60" DisplayMemberBinding="{Binding Name}" />
                             <GridViewColumn Header="Fødselsdato" Width="100" DisplayMemberBinding="{Binding DOB, StringFormat=dd/mm/yyyy}" />
                             <GridViewColumn Header="Køn" Width="60" DisplayMemberBinding="{Binding Gender}" />
@@ -49,10 +45,13 @@
                             <GridViewColumn Header="HZ" Width="60" DisplayMemberBinding="{Binding HZ}" />
                             <GridViewColumn Header="SP" Width="60" DisplayMemberBinding="{Binding SP}" />
                             <GridViewColumn Header="Er Død" Width="60" DisplayMemberBinding="{Binding IsDead}" />
-                            <GridViewColumn Header="Avlsstatus" Width="60" DisplayMemberBinding="{Binding BreedingStatus}" />
-                            <GridViewColumn Header="Alvskåring" Width="60" DisplayMemberBinding="{Binding BreedingApproval}" />
+                            <GridViewColumn Header="Avlsstatus" Width="80" DisplayMemberBinding="{Binding BreedingStatus}" />
+                            <GridViewColumn Header="Far" Width="80" DisplayMemberBinding="{Binding DadPedigreeNumber}" />
+                            <GridViewColumn Header="Mor" Width="80" DisplayMemberBinding="{Binding MomPedigreeNumber}" />
+                            
                         </GridView>
                     </ListView.View>
+                    
                 </ListView>
             </ScrollViewer>
         </Grid>

@@ -11,8 +11,8 @@ namespace ModernDesign.MVVM.Model
         public string PedigreeNumber { get; set; }
         public string Name { get; set; }
         public DateTime DOB { get; set; }
-        public string DadPedigreeNumber { get; set; }//
-        public string MomPedigreeNumber { get; set; }//
+        public string DadPedigreeNumber { get; set; }
+        public string MomPedigreeNumber { get; set; }
         public string Gender { get; set; }
         public bool IsDead { get; set; }
         // Expanded dog attributes

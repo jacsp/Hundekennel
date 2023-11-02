@@ -6,23 +6,9 @@
     <SolidColorBrush x:Key="Item.SelectedInactive.Border" Color="#010103"/>
     <SolidColorBrush x:Key="Item.SelectedActive.Background" Color="#12111c"/>
     <SolidColorBrush x:Key="Item.SelectedActive.Border" Color="#FF26A0DA"/>
-    
+
     <Style x:Key="ListViewTheme" TargetType="{x:Type ListView}">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="ListView">
-                    <Border Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}">
-                        <ItemsPresenter />
-                    </Border>
-                    
-                    
-                    
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-        
+
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="white"/>
@@ -51,7 +37,7 @@
                 </Style>
             </Setter.Value>
         </Setter>
-
+        
     </Style>
 
     

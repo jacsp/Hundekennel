@@ -14,6 +14,7 @@
                 <ResourceDictionary Source="Theme/WindowButtonTheme.xaml" />
                 <ResourceDictionary Source="Theme/ScrollViewTheme.xaml" />
                 <ResourceDictionary Source="Theme/ListViewTheme.xaml" />
+                <ResourceDictionary Source="Theme/GridViewColumnHeaderTheme.xaml" />
                 
             </ResourceDictionary.MergedDictionaries>
 
