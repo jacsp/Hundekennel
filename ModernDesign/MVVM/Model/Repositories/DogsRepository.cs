@@ -225,21 +225,35 @@ namespace ModernDesign.MVVM.Model.Repositories
 
         public IEnumerable<Dog> MatchTwoDogsAndShowFamilyTree(Dog dog1, Dog dog2)
         {
-            List<Dog> dogsFamilyTree = new List<Dog>();
+            List<Dog> dog1AndDog2FamilyTree = new List<Dog>();
 
-            AddDogAndAncestors(dogsFamilyTree, dog1);
-            AddDogAndAncestors(dogsFamilyTree, dog2);
-
-            return dogsFamilyTree;
-        }
-
-        private void AddDogAndAncestors(List<Dog> familyTree, Dog dog)
-        {
-            while (dog != null)
+            // Populate the dog1FamilyTree and dog2FamilyTree lists.
+            void PopulateFamilyTree(Dog currentDog, List<Dog> familyTree, int depth)
             {
-                familyTree.Add(dog);
-                dog = GetById(dog.PedigreeNumber);
+                if (depth > 0 && currentDog != null)
+                {
+                    Dog dad = GetById(currentDog.DadPedigreeNumber);
+                    Dog mom = GetById(currentDog.MomPedigreeNumber);
+
+                    if (dad != null)
+                    {
+                        familyTree.Add(dad);
+                        PopulateFamilyTree(dad, familyTree, depth - 1);
+                    }
+
+                    if (mom != null)
+                    {
+                        familyTree.Add(mom);
+                        PopulateFamilyTree(mom, familyTree, depth - 1);
+                    }
+                }
             }
+
+            // Populate the dog1andDog2FamilyTree and limit to 4 generations.
+            PopulateFamilyTree(dog1, dog1AndDog2FamilyTree, 3);
+            PopulateFamilyTree(dog2, dog1AndDog2FamilyTree, 3);
+
+            return dog1AndDog2FamilyTree;
         }
 
         public void SetDefaultValues(Dog dog)

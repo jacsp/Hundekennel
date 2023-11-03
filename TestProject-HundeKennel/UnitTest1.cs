@@ -2,7 +2,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ModernDesign.MVVM.Model;
 using ModernDesign.MVVM.Model.Repositories;
 using System;
+using System.Diagnostics;
 using System.Collections.ObjectModel;
+
 
 namespace TestProject_HundeKennel
 {
@@ -91,18 +93,55 @@ namespace TestProject_HundeKennel
             Assert.IsFalse(dog4.BreedingStatus);
         }
 
-        /*[TestMethod]
+        [TestMethod]
         public void MatchTwoDogsAndShowFamilyTree_ShouldReturnRelatedDogs()
         {
-            var dog1 = dr.GetById("1"); // Use the correct ID of dog1
-            var dog2 = dr.GetById("2"); // Use the correct ID of dog2
+            // Arrange
+            Dog d1 = dr.GetById("1");
+            d1.DadPedigreeNumber = "3";
+            d1.MomPedigreeNumber = "5";
+            dr.Update(d1);
 
-            var familyTree = dr.MatchTwoDogsAndShowFamilyTree(dog1, dog2);
+            Dog d2 = dr.GetById("2");
+            d2.DadPedigreeNumber = "4";
+            d2.MomPedigreeNumber = "6";
+            dr.Update(d2);
 
-            // Assert the family tree contains the related dogs
-            CollectionAssert.Contains(familyTree.ToList(), dog1);
-            CollectionAssert.Contains(familyTree.ToList(), dog2);
-            // Add more assertions as needed...
-        }*/
+            Dog d3 = dr.GetById("3");
+            d3.DadPedigreeNumber = "7";
+            d3.MomPedigreeNumber = "9";
+            dr.Update(d3);
+
+            Dog d4 = dr.GetById("4");
+            d4.DadPedigreeNumber = "8";
+            d4.MomPedigreeNumber = "10";
+            dr.Update(d4);
+
+            // Act
+            Collection<Dog> familyTree = new Collection<Dog>(dr.MatchTwoDogsAndShowFamilyTree(d1, d2).ToList());
+
+            // Debug
+            string ancestorPedigreeNumberString = "";
+            foreach (Dog dog in familyTree)
+            {
+                if (dog != null)
+                {
+                    ancestorPedigreeNumberString += "-" + dog.PedigreeNumber;
+                }
+            }
+            Debug.WriteLine(ancestorPedigreeNumberString);
+            Debug.WriteLine(familyTree.Count);
+            // Debug
+
+            // Assert
+            CollectionAssert.Contains(familyTree, familyTree.FirstOrDefault(d => d.PedigreeNumber == "3"));
+            CollectionAssert.Contains(familyTree, familyTree.FirstOrDefault(d => d.PedigreeNumber == "5"));
+            CollectionAssert.Contains(familyTree, familyTree.FirstOrDefault(d => d.PedigreeNumber == "7"));
+            CollectionAssert.Contains(familyTree, familyTree.FirstOrDefault(d => d.PedigreeNumber == "9"));
+            CollectionAssert.Contains(familyTree, familyTree.FirstOrDefault(d => d.PedigreeNumber == "4"));
+            CollectionAssert.Contains(familyTree, familyTree.FirstOrDefault(d => d.PedigreeNumber == "6"));
+            CollectionAssert.Contains(familyTree, familyTree.FirstOrDefault(d => d.PedigreeNumber == "8"));
+            CollectionAssert.Contains(familyTree, familyTree.FirstOrDefault(d => d.PedigreeNumber == "10"));
+        }
     }
 }
