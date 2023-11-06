@@ -20,18 +20,35 @@
 
         <Grid Height="450" Width="900">
             <Border BorderThickness="1" BorderBrush="White">
-                
-                <ListBox ItemsSource="{Binding FamilyTree}" Margin="10">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel>
+
+                <TreeView ItemsSource="{Binding FamilyTree}">
+                    <TreeView.ItemTemplate>
+                        <HierarchicalDataTemplate ItemsSource="{Binding Parents}">
+                            <StackPanel >
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding HD}" FontWeight="Bold" FontSize="14"/>
+                                    <TextBlock Text=", " FontWeight="Bold" FontSize="14"/>
+                                    <TextBlock Text="{Binding AD}" FontWeight="Bold" FontSize="14"/>
+                                    <TextBlock Text=", " FontWeight="Bold" FontSize="14"/>
+                                    <TextBlock Text="{Binding HZ}" FontWeight="Bold" FontSize="14"/>
+                                    <TextBlock Text=", " FontWeight="Bold" FontSize="14"/>
+                                    <TextBlock Text="{Binding SP}" FontWeight="Bold" FontSize="14"/>
+                                </StackPanel>
                                 <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="14"/>
-                                <TextBlock Text="{Binding Generation}" FontSize="12" Foreground="Gray"/>
                             </StackPanel>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-                
+                            <HierarchicalDataTemplate.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="14"/>
+                                        <TextBlock Text="{Binding PedigreeNumber}" FontSize="12" Foreground="Gray"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </HierarchicalDataTemplate.ItemTemplate>
+                        </HierarchicalDataTemplate>
+                    </TreeView.ItemTemplate>
+                </TreeView>
+
+
             </Border>
         </Grid>
 

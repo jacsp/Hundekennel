@@ -29,7 +29,12 @@ namespace ModernDesign.MVVM.Model
         public string Color { get; set; }
         public bool BreedingApproval { get; set; }
 
-        
+        public Dog Father { get; set; }
+        public Dog Mother { get; set; }
+        public List<Dog> Parents { get; set; }
+
+
+
 
         public Dog(string pedigreeNumber,
                    string name,
@@ -72,6 +77,7 @@ namespace ModernDesign.MVVM.Model
             SP = sP;
             Color = color;
             BreedingApproval = breedingApproval;
+
         }
     }
 }

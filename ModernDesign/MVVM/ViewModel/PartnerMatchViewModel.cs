@@ -41,7 +41,7 @@ namespace ModernDesign.MVVM.ViewModel
             dogsRepository.GetAll();
             dogs = dogsRepository.dogs;
 
-            FamilyTree = dogsRepository.MatchTwoDogsAndShowFamilyTree("1", "2");
+            FamilyTree = dogsRepository.GetFamilyTree("1");
         }
 
         public void ShowPartnerMatch(string dog1Id, string Dog2Id)

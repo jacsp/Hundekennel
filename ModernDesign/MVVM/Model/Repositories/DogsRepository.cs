@@ -275,12 +275,28 @@ namespace ModernDesign.MVVM.Model.Repositories
                     if (dad != null)
                     {
                         familyTree.Add(dad);
+                        currentDog.Father = dad;
+
+                        if (dad.Parents == null)
+                        {
+                            dad.Parents = new List<Dog>();
+                        }
+                        dad.Parents.Add(currentDog);
+
                         PopulateFamilyTree(dad, familyTree, depth - 1);
                     }
 
                     if (mom != null)
                     {
                         familyTree.Add(mom);
+                        currentDog.Mother = mom;
+
+                        if (mom.Parents == null)
+                        {
+                            mom.Parents = new List<Dog>();
+                        }
+                        mom.Parents.Add(currentDog);
+
                         PopulateFamilyTree(mom, familyTree, depth - 1);
                     }
                 }

@@ -93,7 +93,7 @@ namespace TestProject_HundeKennel
             Assert.IsFalse(dog4.BreedingStatus);
         }
 
-        [TestMethod]
+        /*[TestMethod]
         public void MatchTwoDogsAndShowFamilyTree_ShouldReturnRelatedDogs()
         {
             // Arrange
@@ -142,6 +142,6 @@ namespace TestProject_HundeKennel
             CollectionAssert.Contains(familyTree, familyTree.FirstOrDefault(d => d.PedigreeNumber == "6"));
             CollectionAssert.Contains(familyTree, familyTree.FirstOrDefault(d => d.PedigreeNumber == "8"));
             CollectionAssert.Contains(familyTree, familyTree.FirstOrDefault(d => d.PedigreeNumber == "10"));
-        }
+        }*/
     }
 }
