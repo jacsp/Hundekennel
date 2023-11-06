@@ -8,19 +8,28 @@ namespace ModernDesign.MVVM.Model
 {
     public class DogOwner
     {
-        private string Name;
-        private string Address;
-        private string ZipCode;
-        private string City;
-        private string Phone;
-        private string Email;
+        public int DogOwnerId { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public string PostalCode { get; set; }
+        public string City { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
 
+        public Dog dog { get; set; }
+        public List<Dog> dogs { get; set; }
 
-        public DogOwner(string name, string address, string zipCode, string city, string phone, string email)
+        public DogOwner()
         {
+
+        }
+        
+        public DogOwner(int dogownerid, string name, string address, string postalCode, string city, string phone, string email)
+        {
+            DogOwnerId= dogownerid;
             Name = name;
             Address = address;
-            ZipCode = zipCode;
+            PostalCode = postalCode;
             City = city;
             Phone = phone;
             Email = email;
