@@ -8,6 +8,6 @@ namespace ModernDesign.MVVM.Model.Interfaces
 {
     internal interface IDogsRepository : IGenericRepository<Dog>
     {
-        public IEnumerable<Dog> MatchTwoDogsAndShowFamilyTree(Dog dog1, Dog dog2);
+        public IEnumerable<Dog> MatchTwoDogsAndShowFamilyTree(string dog1Id, string dog2Id);
     }
 }

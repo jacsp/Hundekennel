@@ -223,8 +223,11 @@ namespace ModernDesign.MVVM.Model.Repositories
             }
         }
 
-        public IEnumerable<Dog> MatchTwoDogsAndShowFamilyTree(Dog dog1, Dog dog2)
+        public IEnumerable<Dog> MatchTwoDogsAndShowFamilyTree(string dog1Id, string dog2Id)
         {
+            Dog dog1 = GetById(dog1Id);
+            Dog dog2 = GetById(dog2Id);
+
             List<Dog> dog1AndDog2FamilyTree = new List<Dog>();
 
             // Populate the dog1FamilyTree and dog2FamilyTree lists.
@@ -249,12 +252,46 @@ namespace ModernDesign.MVVM.Model.Repositories
                 }
             }
 
-            // Populate the dog1andDog2FamilyTree and limit to 4 generations.
+            // Populate the dog1andDog2FamilyTree and limit to 3 generations.
             PopulateFamilyTree(dog1, dog1AndDog2FamilyTree, 3);
             PopulateFamilyTree(dog2, dog1AndDog2FamilyTree, 3);
 
             return dog1AndDog2FamilyTree;
         }
+
+        public IEnumerable<Dog> GetFamilyTree(string dog1Id)
+        {
+            Dog dog1 = GetById(dog1Id);
+
+            List<Dog> dogFamilyTree = new List<Dog>();
+
+            void PopulateFamilyTree(Dog currentDog, List<Dog> familyTree, int depth)
+            {
+                if (depth > 0 && currentDog != null)
+                {
+                    Dog dad = GetById(currentDog.DadPedigreeNumber);
+                    Dog mom = GetById(currentDog.MomPedigreeNumber);
+
+                    if (dad != null)
+                    {
+                        familyTree.Add(dad);
+                        PopulateFamilyTree(dad, familyTree, depth - 1);
+                    }
+
+                    if (mom != null)
+                    {
+                        familyTree.Add(mom);
+                        PopulateFamilyTree(mom, familyTree, depth - 1);
+                    }
+                }
+            }
+
+            PopulateFamilyTree(dog1, dogFamilyTree, 3);
+
+            return dogFamilyTree;
+        }
+
+
 
         public void SetDefaultValues(Dog dog)
         {
