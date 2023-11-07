@@ -11,6 +11,21 @@
 *.sln.docstates
 *.cache
 
+# Ignore bin and obj directories
+/bin/
+/obj/
+
+# Ignore build and object files
+*.dll
+*.exe
+*.pdb
+*.cache
+*.sourcelink.json
+
+# Ignore Visual Studio files
+.vscode/
+.vs/
+
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

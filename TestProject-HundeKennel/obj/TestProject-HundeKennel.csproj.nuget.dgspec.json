@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\adam_\\OneDrive\\Skrivebord\\Hundekennel\\Hundekennel\\TestProject-HundeKennel\\TestProject-HundeKennel.csproj": {}
+    "C:\\Users\\trygvebechsgaard\\source\\repos\\Hundekennel\\TestProject-HundeKennel\\TestProject-HundeKennel.csproj": {}
   },
   "projects": {
-    "C:\\Users\\adam_\\OneDrive\\Skrivebord\\Hundekennel\\Hundekennel\\ModernDesign\\ModernDesign.csproj": {
+    "C:\\Users\\trygvebechsgaard\\source\\repos\\Hundekennel\\ModernDesign\\ModernDesign.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\adam_\\OneDrive\\Skrivebord\\Hundekennel\\Hundekennel\\ModernDesign\\ModernDesign.csproj",
+        "projectUniqueName": "C:\\Users\\trygvebechsgaard\\source\\repos\\Hundekennel\\ModernDesign\\ModernDesign.csproj",
         "projectName": "ModernDesign",
-        "projectPath": "C:\\Users\\adam_\\OneDrive\\Skrivebord\\Hundekennel\\Hundekennel\\ModernDesign\\ModernDesign.csproj",
-        "packagesPath": "C:\\Users\\adam_\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\adam_\\OneDrive\\Skrivebord\\Hundekennel\\Hundekennel\\ModernDesign\\obj\\",
+        "projectPath": "C:\\Users\\trygvebechsgaard\\source\\repos\\Hundekennel\\ModernDesign\\ModernDesign.csproj",
+        "packagesPath": "C:\\Users\\trygvebechsgaard\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\trygvebechsgaard\\source\\repos\\Hundekennel\\ModernDesign\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\adam_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\trygvebechsgaard\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -60,6 +64,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.23, 6.0.23]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-arm64",
+              "version": "[6.0.23, 6.0.23]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.23, 6.0.23]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.23, 6.0.23]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
@@ -68,21 +90,25 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-rc.2.23502.2\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\adam_\\OneDrive\\Skrivebord\\Hundekennel\\Hundekennel\\TestProject-HundeKennel\\TestProject-HundeKennel.csproj": {
+    "C:\\Users\\trygvebechsgaard\\source\\repos\\Hundekennel\\TestProject-HundeKennel\\TestProject-HundeKennel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\adam_\\OneDrive\\Skrivebord\\Hundekennel\\Hundekennel\\TestProject-HundeKennel\\TestProject-HundeKennel.csproj",
+        "projectUniqueName": "C:\\Users\\trygvebechsgaard\\source\\repos\\Hundekennel\\TestProject-HundeKennel\\TestProject-HundeKennel.csproj",
         "projectName": "TestProject-HundeKennel",
-        "projectPath": "C:\\Users\\adam_\\OneDrive\\Skrivebord\\Hundekennel\\Hundekennel\\TestProject-HundeKennel\\TestProject-HundeKennel.csproj",
-        "packagesPath": "C:\\Users\\adam_\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\adam_\\OneDrive\\Skrivebord\\Hundekennel\\Hundekennel\\TestProject-HundeKennel\\obj\\",
+        "projectPath": "C:\\Users\\trygvebechsgaard\\source\\repos\\Hundekennel\\TestProject-HundeKennel\\TestProject-HundeKennel.csproj",
+        "packagesPath": "C:\\Users\\trygvebechsgaard\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\trygvebechsgaard\\source\\repos\\Hundekennel\\TestProject-HundeKennel\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\adam_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\trygvebechsgaard\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -96,8 +122,8 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
-              "C:\\Users\\adam_\\OneDrive\\Skrivebord\\Hundekennel\\Hundekennel\\ModernDesign\\ModernDesign.csproj": {
-                "projectPath": "C:\\Users\\adam_\\OneDrive\\Skrivebord\\Hundekennel\\Hundekennel\\ModernDesign\\ModernDesign.csproj"
+              "C:\\Users\\trygvebechsgaard\\source\\repos\\Hundekennel\\ModernDesign\\ModernDesign.csproj": {
+                "projectPath": "C:\\Users\\trygvebechsgaard\\source\\repos\\Hundekennel\\ModernDesign\\ModernDesign.csproj"
               }
             }
           }
@@ -140,12 +166,26 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.23, 6.0.23]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.23, 6.0.23]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.23, 6.0.23]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-rc.2.23502.2\\RuntimeIdentifierGraph.json"
         }
       }
     }
