@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ModernDesign.MVVM.Model
+namespace ModernDesign.MVVM.Model.Interfaces
 {
-    public enum GenderType
+    internal interface IDogOwnerRepository : IGenericRepository<DogOwner>
     {
-        Male,
-        Bitch
     }
 }
