@@ -17,21 +17,22 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0">
-                <TextBox Height="50" Width="225" Text="Første hunds Stamtavlenummer"
-                         VerticalAlignment="Center" TextAlignment="Center"/>
-                
-                <Button x:Name="btn_Partner1"   
-                             Height="50" Content="vælg hund"/>
+
             </StackPanel>
+
             <StackPanel Grid.Row="1">
-                
+                <TextBox Text="dog1"/>
+                <TextBox Text="dog2"/>
+            </StackPanel>
+            <StackPanel Grid.Row="2">
+
             </StackPanel>
         </Grid>
-        
-        
-    <Grid Height="650" Width="720" Grid.Column="1">
+
+        <Grid Height="650" Width="720" Grid.Column="1">
         <Border BorderThickness="1" BorderBrush="White">
             <Grid >
 
