@@ -11,9 +11,11 @@ namespace ModernDesign.MVVM.ViewModel
     {
 		public HomeViewModel HomeVM { get; set; }
         public DogsViewModel DogsVM { get; set; }
+        public PartnerMatchViewModel PartnerMatchVM { get; set; }
 
         public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand DogsViewCommand { get; set; }
+        public RelayCommand PartnerMatchCommand { get; set; }
 
 
         private object _currentView;

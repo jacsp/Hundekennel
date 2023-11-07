@@ -12,7 +12,7 @@ namespace ModernDesign.MVVM.ViewModel
 {
     class PartnerMatchViewModel : ObservableObject
     {
-        private Dog selectedDog;
+        private Dog selectedDog = null;
 
         private readonly DogsRepository dogsRepository;
         private ObservableCollection<Dog> dogs;
