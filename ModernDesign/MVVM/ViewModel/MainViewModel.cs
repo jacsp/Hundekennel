@@ -33,9 +33,10 @@ namespace ModernDesign.MVVM.ViewModel
         public MainViewModel()
         {
 			HomeVM = new HomeViewModel();
-            DogsVM = new DogsViewModel();	
+            DogsVM = new DogsViewModel();
+            PartnerMatchVM = new PartnerMatchViewModel();
 
-			CurrentView = HomeVM;
+            CurrentView = HomeVM;
 
 			HomeViewCommand = new RelayCommand(o =>
 			{
