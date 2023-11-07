@@ -4,55 +4,190 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ModernDesign.MVVM.View"
-             mc:Ignorable="d" 
-             d:DesignHeight="625"
-             d:DesignWidth="1000">
-   
-    
-    
-    <StackPanel>
-        <TextBlock
-        Margin="0,0,0,20"
-        HorizontalAlignment="Left"
-        FontSize="28"
-        Foreground="white"
-        Text="Oversigt" />
+             d:DesignHeight="725"
+             d:DesignWidth="1000"
+             mc:Ignorable="d">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="225"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
 
-        <Grid Height="450" Width="900">
-            <Border BorderThickness="1" BorderBrush="White">
-
-                <TreeView ItemsSource="{Binding FamilyTree}">
-                    <TreeView.ItemTemplate>
-                        <HierarchicalDataTemplate ItemsSource="{Binding Parents}">
-                            <StackPanel >
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding HD}" FontWeight="Bold" FontSize="14"/>
-                                    <TextBlock Text=", " FontWeight="Bold" FontSize="14"/>
-                                    <TextBlock Text="{Binding AD}" FontWeight="Bold" FontSize="14"/>
-                                    <TextBlock Text=", " FontWeight="Bold" FontSize="14"/>
-                                    <TextBlock Text="{Binding HZ}" FontWeight="Bold" FontSize="14"/>
-                                    <TextBlock Text=", " FontWeight="Bold" FontSize="14"/>
-                                    <TextBlock Text="{Binding SP}" FontWeight="Bold" FontSize="14"/>
-                                </StackPanel>
-                                <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="14"/>
-                            </StackPanel>
-                            <HierarchicalDataTemplate.ItemTemplate>
-                                <DataTemplate>
-                                    <StackPanel>
-                                        <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="14"/>
-                                        <TextBlock Text="{Binding PedigreeNumber}" FontSize="12" Foreground="Gray"/>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </HierarchicalDataTemplate.ItemTemplate>
-                        </HierarchicalDataTemplate>
-                    </TreeView.ItemTemplate>
-                </TreeView>
-
-
-            </Border>
+        <Grid Grid.Column="0" Height="650">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0">
+                <TextBox Height="50" Width="225" Text="Første hunds Stamtavlenummer"
+                         VerticalAlignment="Center" TextAlignment="Center"/>
+                
+                <Button x:Name="btn_Partner1"   
+                             Height="50" Content="vælg hund"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1">
+                
+            </StackPanel>
         </Grid>
+        
+        
+    <Grid Height="650" Width="720" Grid.Column="1">
+        <Border BorderThickness="1" BorderBrush="White">
+            <Grid >
 
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="180" />
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="180" />
+                    <ColumnDefinition Width="180"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="650"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Column="0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
 
+                    <Border Grid.Row="0" Background="DarkGray" BorderBrush="Black" BorderThickness="0.5">
 
-    </StackPanel>
+                    </Border>
+                    <Border Grid.Row="1" Background="LightGray" BorderBrush="Black" BorderThickness="0.5">
+
+                    </Border>
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0" Background="DarkGray" BorderBrush="Black" BorderThickness="0.5">
+
+                    </Border>
+                    <Border Grid.Row="1" Background="LightGray" BorderBrush="Black" BorderThickness="0.5">
+
+                    </Border>
+                    <Border Grid.Row="2" Background="DarkGray" BorderBrush="Black" BorderThickness="0.5">
+
+                    </Border>
+                    <Border Grid.Row="3" Background="LightGray" BorderBrush="Black" BorderThickness="0.5">
+
+                    </Border>
+                </Grid>
+
+                <Grid Grid.Column="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0" Background="DarkGray" BorderBrush="Black" BorderThickness="0.5">
+
+                    </Border>
+                    <Border Grid.Row="1" Background="LightGray" BorderBrush="Black" BorderThickness="0.5">
+
+                    </Border>
+                    <Border Grid.Row="2" Background="DarkGray" BorderBrush="Black" BorderThickness="0.5">
+
+                    </Border>
+                    <Border Grid.Row="3" Background="LightGray" BorderBrush="Black" BorderThickness="0.5">
+
+                    </Border>
+                    <Border Grid.Row="4" Background="DarkGray" BorderBrush="Black" BorderThickness="0.5">
+
+                    </Border>
+                    <Border Grid.Row="5" Background="LightGray" BorderBrush="Black" BorderThickness="0.5">
+
+                    </Border>
+                    <Border Grid.Row="6" Background="DarkGray" BorderBrush="Black" BorderThickness="0.5">
+
+                    </Border>
+                    <Border Grid.Row="7" Background="LightGray" BorderBrush="Black" BorderThickness="0.5">
+
+                    </Border>
+                </Grid>
+
+                <Grid Grid.Column="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0" Background="DarkGray" BorderBrush="Black" BorderThickness="0.5">
+
+                    </Border>
+                    <Border Grid.Row="1" Background="LightGray" BorderBrush="Black" BorderThickness="0.5">
+
+                    </Border>
+                    <Border Grid.Row="2" Background="DarkGray" BorderBrush="Black" BorderThickness="0.5">
+
+                    </Border>
+                    <Border Grid.Row="3" Background="LightGray" BorderBrush="Black" BorderThickness="0.5">
+
+                    </Border>
+                    <Border Grid.Row="4" Background="DarkGray" BorderBrush="Black" BorderThickness="0.5">
+
+                    </Border>
+                    <Border Grid.Row="5" Background="LightGray" BorderBrush="Black" BorderThickness="0.5">
+
+                    </Border>
+                    <Border Grid.Row="6" Background="DarkGray" BorderBrush="Black" BorderThickness="0.5">
+
+                    </Border>
+                    <Border Grid.Row="7" Background="LightGray" BorderBrush="Black" BorderThickness="0.5">
+
+                    </Border>
+                    <Border Grid.Row="8" Background="DarkGray" BorderBrush="Black" BorderThickness="0.5">
+
+                    </Border>
+                    <Border Grid.Row="9" Background="LightGray" BorderBrush="Black" BorderThickness="0.5">
+
+                    </Border>
+                    <Border Grid.Row="10" Background="DarkGray" BorderBrush="Black" BorderThickness="0.5">
+
+                    </Border>
+                    <Border Grid.Row="11" Background="LightGray" BorderBrush="Black" BorderThickness="0.5">
+
+                    </Border>
+                    <Border Grid.Row="12" Background="DarkGray" BorderBrush="Black" BorderThickness="0.5">
+
+                    </Border>
+                    <Border Grid.Row="13" Background="LightGray" BorderBrush="Black" BorderThickness="0.5">
+
+                    </Border>
+                    <Border Grid.Row="14" Background="DarkGray" BorderBrush="Black" BorderThickness="0.5">
+
+                    </Border>
+                    <Border Grid.Row="15" Background="LightGray" BorderBrush="Black" BorderThickness="0.5">
+
+                    </Border>
+                </Grid>
+
+            </Grid>
+        </Border>
+        </Grid>
+    </Grid>
+
 </UserControl>
