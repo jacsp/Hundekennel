@@ -20,7 +20,7 @@
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type viewModel:DogsViewModel}">
-                <view:MoviesView />
+                <view:DogsView />
             </DataTemplate>
 
         </ResourceDictionary>

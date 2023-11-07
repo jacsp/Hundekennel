@@ -85,7 +85,7 @@
 
                 <RadioButton
                     Height="50"
-                    Command="{Binding MoviesViewCommand}"
+                    Command="{Binding DogsViewCommand}"
                     Content="Oversigt"
                     FontSize="15"
                     Foreground="White"

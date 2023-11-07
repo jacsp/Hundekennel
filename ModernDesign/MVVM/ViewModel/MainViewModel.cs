@@ -10,10 +10,10 @@ namespace ModernDesign.MVVM.ViewModel
     internal class MainViewModel : ObservableObject
     {
 		public HomeViewModel HomeVM { get; set; }
-        public DogsViewModel MoviesVM { get; set; }
+        public DogsViewModel DogsVM { get; set; }
 
         public RelayCommand HomeViewCommand { get; set; }
-        public RelayCommand MoviesViewCommand { get; set; }
+        public RelayCommand DogsViewCommand { get; set; }
 
 
         private object _currentView;
@@ -31,7 +31,7 @@ namespace ModernDesign.MVVM.ViewModel
         public MainViewModel()
         {
 			HomeVM = new HomeViewModel();
-			MoviesVM = new DogsViewModel();	
+            DogsVM = new DogsViewModel();	
 
 			CurrentView = HomeVM;
 
@@ -39,9 +39,9 @@ namespace ModernDesign.MVVM.ViewModel
 			{
 				CurrentView = HomeVM;
 			});
-			MoviesViewCommand = new RelayCommand(o =>
+            DogsViewCommand = new RelayCommand(o =>
 			{
-				CurrentView = MoviesVM;
+				CurrentView = DogsVM;
 			});
         }
 

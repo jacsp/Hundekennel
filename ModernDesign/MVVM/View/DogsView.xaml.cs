@@ -18,9 +18,9 @@ namespace ModernDesign.MVVM.View
     /// <summary>
     /// Interaction logic for MoviesView.xaml
     /// </summary>
-    public partial class MoviesView : UserControl
+    public partial class DogsView : UserControl
     {
-        public MoviesView()
+        public DogsView()
         {
             InitializeComponent();
         }
