@@ -2,4 +2,4 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/TestProject-HundeKennel/obj/Debug/net6.0-windows/TestProject-HundeKennel.csproj.AssemblyReference.cache
+/TestProject-HundeKennel/TestProject-HundeKennel.csproj
