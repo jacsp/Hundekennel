@@ -43,6 +43,10 @@ namespace ModernDesign.MVVM.ViewModel
 			{
 				CurrentView = DogsVM;
 			});
+            PartnerMatchCommand = new RelayCommand(o =>
+            {
+                CurrentView = PartnerMatchVM;
+            });
         }
 
     }
