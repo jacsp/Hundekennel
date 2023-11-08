@@ -2,7 +2,7 @@
 
     <Style x:Key="ScrollViewTheme" TargetType="{x:Type ScrollViewer}">
 
-        <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
+        <Setter Property="ScrollViewer.CanContentScroll" Value="True" />
 
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
@@ -14,19 +14,20 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="ScrollBarThumbTheme" TargetType="{ x:Type Thumb}">
-        <Setter Property="OverridesDefaultStyle" Value="true"/>
-        <Setter Property="IsTabStop" Value="false"/>
+    <Style x:Key="ScrollBarThumbTheme" TargetType="{x:Type Thumb}">
+        <Setter Property="OverridesDefaultStyle" Value="true" />
+        <Setter Property="IsTabStop" Value="false" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Thumb}">
-                    <Border x:Name="rectangle"
-                            SnapsToDevicePixels="True"
-                            Background="AliceBlue"
-                            Opacity="0.3"
-                            CornerRadius="4"
-                            Height="{TemplateBinding Height}"
-                            Width="{TemplateBinding Width}"/>
+                    <Border
+                        x:Name="rectangle"
+                        Width="{TemplateBinding Width}"
+                        Height="{TemplateBinding Height}"
+                        Background="AliceBlue"
+                        CornerRadius="4"
+                        Opacity="0.3"
+                        SnapsToDevicePixels="True" />
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="true">
                             <Setter TargetName="rectangle" Property="Opacity" Value="1" />
@@ -38,29 +39,30 @@
     </Style>
 
     <Style x:Key="ScrollBarTheme" TargetType="{x:Type ScrollBar}">
-        <Setter Property="Stylus.IsPressAndHoldEnabled" Value="True"/>
-        <Setter Property="Stylus.IsFlicksEnabled" Value="True"/>
+        <Setter Property="Stylus.IsPressAndHoldEnabled" Value="True" />
+        <Setter Property="Stylus.IsFlicksEnabled" Value="True" />
 
-        <Setter Property="Width" Value="14"/>
-        <Setter Property="Margin" Value="-14 0 0 0" />
-        <Setter Property="MinWidth" Value="{Binding Height, RelativeSource={RelativeSource Self}}"/>
+        <Setter Property="Width" Value="14" />
+        <Setter Property="Margin" Value="-14,0,0,0" />
+        <Setter Property="MinWidth" Value="{Binding Height, RelativeSource={RelativeSource Self}}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ScrollBar}">
                     <Grid x:Name="Bg" SnapsToDevicePixels="true">
 
-                        <Border Padding="0 4">
-                            <Track x:Name="PART_Track"
-                                    IsDirectionReversed="true"
-                                    IsEnabled="{TemplateBinding IsMouseOver}"
-                                    Width="8"
-                                    HorizontalAlignment="Center">
-                                
+                        <Border Padding="0,4">
+                            <Track
+                                x:Name="PART_Track"
+                                Width="8"
+                                HorizontalAlignment="Center"
+                                IsDirectionReversed="true"
+                                IsEnabled="{TemplateBinding IsMouseOver}">
+
                                 <Track.DecreaseRepeatButton>
-                                    <RepeatButton Opacity="1" Command="{x:Static ScrollBar.PageUpCommand}" />
+                                    <RepeatButton Command="{x:Static ScrollBar.PageUpCommand}" Opacity="1" />
                                 </Track.DecreaseRepeatButton>
                                 <Track.IncreaseRepeatButton>
-                                    <RepeatButton Opacity="1" Command="{x:Static ScrollBar.PageDownCommand}" />
+                                    <RepeatButton Command="{x:Static ScrollBar.PageDownCommand}" Opacity="1" />
                                 </Track.IncreaseRepeatButton>
 
                             </Track>
@@ -74,18 +76,54 @@
     <ControlTemplate x:Key="ScrollViewerTemplate1" TargetType="{x:Type ScrollViewer}">
         <Grid x:Name="Grid" Background="{TemplateBinding Background}">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <Rectangle x:Name="Corner" Grid.Column="1" Fill="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Grid.Row="1"/>
-            <ScrollContentPresenter x:Name="PART_ScrollContentPresenter" CanHorizontallyScroll="False" ContentTemplate="{TemplateBinding ContentTemplate}" CanVerticallyScroll="False" Grid.Column="0" Content="{TemplateBinding Content}" CanContentScroll="{TemplateBinding CanContentScroll}" Margin="{TemplateBinding Padding}" Grid.Row="0"/>
-            <ScrollBar Style="{StaticResource ScrollBarTheme}" x:Name="PART_VerticalScrollBar" AutomationProperties.AutomationId="VerticalScrollBar" Cursor="Arrow" Grid.Column="1" Maximum="{TemplateBinding ScrollableHeight}" Minimum="0" Grid.Row="0" Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource Mode=TemplatedParent}}" ViewportSize="{TemplateBinding ViewportHeight}" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"/>
-            <ScrollBar Style="{StaticResource ScrollBarTheme}" x:Name="PART_HorizontalScrollBar" AutomationProperties.AutomationId="HorizontalScrollBar" Cursor="Arrow" Grid.Column="0" Maximum="{TemplateBinding ScrollableWidth}" Minimum="0" Orientation="Horizontal" Grid.Row="1" Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource Mode=TemplatedParent}}" ViewportSize="{TemplateBinding ViewportWidth}" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"/>
+            <Rectangle
+                x:Name="Corner"
+                Grid.Row="1"
+                Grid.Column="1"
+                Fill="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" />
+            <ScrollContentPresenter
+                x:Name="PART_ScrollContentPresenter"
+                Grid.Row="0"
+                Grid.Column="0"
+                Margin="{TemplateBinding Padding}"
+                CanContentScroll="{TemplateBinding CanContentScroll}"
+                CanHorizontallyScroll="False"
+                CanVerticallyScroll="False"
+                Content="{TemplateBinding Content}"
+                ContentTemplate="{TemplateBinding ContentTemplate}" />
+            <ScrollBar
+                x:Name="PART_VerticalScrollBar"
+                Grid.Row="0"
+                Grid.Column="1"
+                AutomationProperties.AutomationId="VerticalScrollBar"
+                Cursor="Arrow"
+                Maximum="{TemplateBinding ScrollableHeight}"
+                Minimum="0"
+                Style="{StaticResource ScrollBarTheme}"
+                ViewportSize="{TemplateBinding ViewportHeight}"
+                Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
+                Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+            <ScrollBar
+                x:Name="PART_HorizontalScrollBar"
+                Grid.Row="1"
+                Grid.Column="0"
+                AutomationProperties.AutomationId="HorizontalScrollBar"
+                Cursor="Arrow"
+                Maximum="{TemplateBinding ScrollableWidth}"
+                Minimum="0"
+                Orientation="Horizontal"
+                Style="{StaticResource ScrollBarTheme}"
+                ViewportSize="{TemplateBinding ViewportWidth}"
+                Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
+                Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
         </Grid>
     </ControlTemplate>
-    
+
 </ResourceDictionary>
