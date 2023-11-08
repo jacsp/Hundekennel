@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ModernDesign.MVVM.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,10 +21,15 @@ namespace ModernDesign.MVVM.View
     /// </summary>
     public partial class PartnerMatchView : UserControl
     {
-
+        private PartnerMatchViewModel PartnerMatchVM = new PartnerMatchViewModel();
         public PartnerMatchView()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            PartnerMatchVM.BuildGrid1(tb_dog1Match.Text);
         }
 
     }

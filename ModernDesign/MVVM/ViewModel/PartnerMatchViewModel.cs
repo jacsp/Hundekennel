@@ -15,17 +15,38 @@ namespace ModernDesign.MVVM.ViewModel
 {
     class PartnerMatchViewModel : ObservableObject
     {
+        private readonly DogsRepository dogsRepository;
+        private Object selectedText1;
+        private Object selectedText2;
+        public Object SelectedText1
+        {
+            get { return selectedText1; }
+            set
+            {
+                selectedText1 = value;
+                OnPropertyChanged(nameof(selectedText1));
+            }
+        }
+        public Object SelectedText2
+        {
+            get { return selectedText2; }
+            set
+            {
+                selectedText2 = value;
+                OnPropertyChanged(nameof(selectedText2));
+            }
+        }
+
         public ObservableCollection<GridCell> GridCells { get; set; }
         public ObservableCollection<GridCell> GridColumn0 { get; set; }
         public ObservableCollection<GridCell> GridColumn1 { get; set; }
         public ObservableCollection<GridCell> GridColumn2 { get; set; }
         public ObservableCollection<GridCell> GridColumn3 { get; set; }
-
         public RelayCommand ShowFamilyTreeCommand { get; set; }
-
-        private readonly DogsRepository dogsRepository;
-
         public List<Dog> FamilyTree { get; set; }
+
+
+
 
 
         public PartnerMatchViewModel()
@@ -33,11 +54,11 @@ namespace ModernDesign.MVVM.ViewModel
             dogsRepository = new DogsRepository();
             dogsRepository.GetAll();
 
-            ShowFamilyTreeCommand = new RelayCommand(o =>
+/*            ShowFamilyTreeCommand = new RelayCommand(o =>
             {
                 
             });
-            BuildGrid1("1");
+            BuildGrid1("1");*/
 
         }
 
