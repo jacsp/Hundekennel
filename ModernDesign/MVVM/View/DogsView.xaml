@@ -24,7 +24,8 @@
                 <Border BorderThickness="1" BorderBrush="White">
 
                     <ListView Width="900" BorderThickness="0" 
-                  x:Name="lv_Dogs" ItemsSource="{Binding Dogs}" >
+                  x:Name="lv_Dogs" ItemsSource="{Binding Dogs}" 
+                              SelectionChanged="lv_Dogs_SelectionChanged">
 
                         <ListView.View>
                             <GridView >

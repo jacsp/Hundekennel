@@ -12,9 +12,9 @@ namespace ModernDesign.MVVM.ViewModel
 {
     class DogsViewModel : ObservableObject
     {
-        private Dog selectedDog;
-
+        private Object selectedDog;
         private readonly DogsRepository dogsRepository;
+
         private ObservableCollection<Dog> dogs;
         public ObservableCollection<Dog> Dogs
         {
@@ -22,8 +22,7 @@ namespace ModernDesign.MVVM.ViewModel
             set { dogs = value; }
         }
 
-        //public RelayCommand SelectedDog { get; set; }
-        public Dog SelectedDog
+        public Object SelectedDog
         {
             get { return selectedDog; }
             set

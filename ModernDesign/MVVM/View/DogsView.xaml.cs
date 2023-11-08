@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ModernDesign.MVVM.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,20 @@ namespace ModernDesign.MVVM.View
     /// </summary>
     public partial class DogsView : UserControl
     {
+        private DogsViewModel DogsVM = new DogsViewModel();
         public DogsView()
         {
             InitializeComponent();
+
+
+        }
+
+        private void lv_Dogs_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (lv_Dogs.SelectedItem != null)
+            {
+                DogsVM.SelectedDog = lv_Dogs.SelectedItem;
+            }
         }
     }
 }
