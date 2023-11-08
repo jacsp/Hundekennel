@@ -20,14 +20,11 @@ namespace ModernDesign.MVVM.View
     /// </summary>
     public partial class PartnerMatchView : UserControl
     {
+
         public PartnerMatchView()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
     }
 }

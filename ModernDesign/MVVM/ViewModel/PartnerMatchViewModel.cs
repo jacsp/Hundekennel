@@ -13,13 +13,15 @@ using System.Windows;
 
 namespace ModernDesign.MVVM.ViewModel
 {
-    class PartnerMatchViewModel
+    class PartnerMatchViewModel : ObservableObject
     {
         public ObservableCollection<GridCell> GridCells { get; set; }
         public ObservableCollection<GridCell> GridColumn0 { get; set; }
         public ObservableCollection<GridCell> GridColumn1 { get; set; }
         public ObservableCollection<GridCell> GridColumn2 { get; set; }
         public ObservableCollection<GridCell> GridColumn3 { get; set; }
+
+        public RelayCommand ShowFamilyTreeCommand { get; set; }
 
         private readonly DogsRepository dogsRepository;
 
@@ -31,7 +33,12 @@ namespace ModernDesign.MVVM.ViewModel
             dogsRepository = new DogsRepository();
             dogsRepository.GetAll();
 
+            ShowFamilyTreeCommand = new RelayCommand(o =>
+            {
+                
+            });
             BuildGrid1("1");
+
         }
 
         public void BuildGrid1(string id)
@@ -88,36 +95,8 @@ namespace ModernDesign.MVVM.ViewModel
                         BorderBrush = Brushes.Black
                     });
                     dogsAdded++;
-                }
-                
+                }                
             }
         }
-
-        public void BuildGrid(string id1, string id2)
-        {
-            FamilyTree = dogsRepository.MatchTwoDogsAndShowFamilyTree(id1, id2).ToList();
-
-            GridCells = new ObservableCollection<GridCell>();
-
-            int numRows = 2; // Initial number of rows
-
-            for (int col = 0; col < 4; col++)
-            {
-                for (int i = 0; i < numRows; i++)
-                {
-                    GridCells.Add(new GridCell
-                    {
-                        BackgroundColor = (i + col) % 2 == 0 ? Brushes.DarkGray : Brushes.LightGray,
-                        BorderThickness = new Thickness(0.5),
-                        BorderBrush = Brushes.Black
-                    });
-                }
-
-                numRows *= 2; // Double the number of rows for the next column
-            }
-        }
-
-
-
     }
 }

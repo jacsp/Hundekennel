@@ -26,10 +26,10 @@
 
                 <ListView Width="900" BorderThickness="0" 
                           x:Name="lv_Dogs" ItemsSource="{Binding Dogs}"  
-                          Style="{StaticResource ListViewTheme}">
+                          >
 
                     <ListView.View>
-                        <GridView ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderTheme}">
+                        <GridView >
                             <GridViewColumn Header="Stamtavle" Width="80" DisplayMemberBinding="{Binding PedigreeNumber}" />
                             <GridViewColumn Header="Navn" Width="60" DisplayMemberBinding="{Binding Name}" />
                             <GridViewColumn Header="Fødselsdato" Width="100" DisplayMemberBinding="{Binding DOB, StringFormat=dd/mm/yyyy}" />
