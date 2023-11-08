@@ -303,7 +303,6 @@ namespace ModernDesign.MVVM.Model.Repositories
             }
 
             PopulateFamilyTree(dog1, dogFamilyTree, 3);
-
             return dogFamilyTree;
         }
 

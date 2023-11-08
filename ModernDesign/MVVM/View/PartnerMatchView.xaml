@@ -13,16 +13,18 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
+
+
         <Grid Grid.Column="0" Height="650">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            
+
             <StackPanel Grid.Row="0">
                 <DataGrid Margin="10,50" Height="120">
-                    
+
                 </DataGrid>
             </StackPanel>
 
@@ -31,7 +33,7 @@
                 <Button Height="40" Width="150" Content="Match" Click="Button_Click"/>
                 <TextBox x:Name="tb_dog2Match" Style="{StaticResource TextBoxTheme}" Margin="10"/>
             </StackPanel>
-            
+
             <StackPanel Grid.Row="2">
                 <DataGrid Margin="10,50" Height="120">
 
@@ -39,57 +41,168 @@
             </StackPanel>
         </Grid>
 
+
         <Grid Height="650" Width="720" Grid.Column="1">
-        <Border BorderThickness="1" BorderBrush="White">
-                
-            <DataGrid ItemsSource="{Binding FamilyTree}" Height="650" Width="720" Grid.Column="1">
-                <DataGrid.Columns>
-                    <!-- Column 1 -->
-                    <DataGridTextColumn Header="Column 1" Width="180"/>
-                    <!-- Column 2 -->
-                    <DataGridTextColumn Header="Column 2" Width="180"/>
-                    <!-- Column 3 -->
-                    <DataGridTextColumn Header="Column 3" Width="180"/>
-                    <!-- Column 4 -->
-                    <DataGridTextColumn Header="Column 4" Width="180"/>
-                </DataGrid.Columns>
 
-                <!-- Row 1 -->
-                <DataGridRow Background="DarkGray" />
-                <!-- Row 2 -->
-                <DataGridRow Background="LightGray" />
-                <!-- Row 3 -->
-                <DataGridRow Background="DarkGray" />
-                <!-- Row 4 -->
-                <DataGridRow Background="LightGray" />
-                <!-- Row 5 -->
-                <DataGridRow Background="DarkGray" />
-                <!-- Row 6 -->
-                <DataGridRow Background="LightGray" />
-                <!-- Row 7 -->
-                <DataGridRow Background="DarkGray" />
-                <!-- Row 8 -->
-                <DataGridRow Background="LightGray" />
-                <!-- Row 9 -->
-                <DataGridRow Background="DarkGray" />
-                <!-- Row 10 -->
-                <DataGridRow Background="LightGray" />
-                <!-- Row 11 -->
-                <DataGridRow Background="DarkGray" />
-                <!-- Row 12 -->
-                <DataGridRow Background="LightGray" />
-                <!-- Row 13 -->
-                <DataGridRow Background="DarkGray" />
-                <!-- Row 14 -->
-                <DataGridRow Background="LightGray" />
-                <!-- Row 15 -->
-                <DataGridRow Background="DarkGray" />
-                <!-- Row 16 -->
-                <DataGridRow Background="LightGray" />
-            </DataGrid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="325"/>
+                <RowDefinition Height="325"/>
+            </Grid.RowDefinitions>
 
-            </Border>
+
+            <!-- FamilyTree for the first dog -->
+            <Grid Grid.Row="0" Height="325" Width="720" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="180"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0" BorderThickness="1" BorderBrush="White">
+                    <ItemsControl ItemsSource="{Binding GridColumn0}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Vertical"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Width="180" Height="325"
+                                        Background="{Binding BackgroundColor}"
+                                        BorderThickness="{Binding BorderThickness}"
+                                        BorderBrush="{Binding BorderBrush}">
+                                    <StackPanel VerticalAlignment="Center">
+                                        <StackPanel Orientation="Horizontal"  HorizontalAlignment="center">
+                                            <TextBlock Text="{Binding DogInstance.HD}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            <TextBlock Text=", " Foreground="White"/>
+                                            <TextBlock Text="{Binding DogInstance.AD}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            <TextBlock Text=", " Foreground="White"/>
+                                            <TextBlock Text="{Binding DogInstance.HZ}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            <TextBlock Text=", " Foreground="White"/>
+                                            <TextBlock Text="{Binding DogInstance.SP}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal"  HorizontalAlignment="center">
+                                            <TextBlock Text="{Binding DogInstance.PedigreeNumber}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            <TextBlock Text=", " Foreground="White"/>
+                                            <TextBlock Text="{Binding DogInstance.DOB, StringFormat=dd/MM/yyyy}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Border>
+
+                <Border Grid.Column="1" BorderThickness="1" BorderBrush="White">
+                    <ItemsControl ItemsSource="{Binding GridColumn1}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Vertical"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Width="180" Height="162.5"
+                                        Background="{Binding BackgroundColor}"
+                                        BorderThickness="{Binding BorderThickness}"
+                                        BorderBrush="{Binding BorderBrush}">
+                                    <StackPanel VerticalAlignment="Center">
+                                        <StackPanel Orientation="Horizontal"  HorizontalAlignment="center">
+                                            <TextBlock Text="{Binding DogInstance.HD}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            <TextBlock Text=", " Foreground="White"/>
+                                            <TextBlock Text="{Binding DogInstance.AD}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            <TextBlock Text=", " Foreground="White"/>
+                                            <TextBlock Text="{Binding DogInstance.HZ}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            <TextBlock Text=", " Foreground="White"/>
+                                            <TextBlock Text="{Binding DogInstance.SP}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal"  HorizontalAlignment="center">
+                                            <TextBlock Text="{Binding DogInstance.PedigreeNumber}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            <TextBlock Text=", " Foreground="White"/>
+                                            <TextBlock Text="{Binding DogInstance.DOB, StringFormat=dd/MM/yyyy}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Border>
+
+                <Border Grid.Column="2" BorderThickness="1" BorderBrush="White">
+                    <ItemsControl ItemsSource="{Binding GridColumn2}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Vertical"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Width="180" Height="81.25" 
+                                        Background="{Binding BackgroundColor}"
+                                        BorderThickness="{Binding BorderThickness}"
+                                        BorderBrush="{Binding BorderBrush}">
+                                    <StackPanel VerticalAlignment="Center">
+                                        <StackPanel Orientation="Horizontal"  HorizontalAlignment="center">
+                                            <TextBlock Text="{Binding DogInstance.HD}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            <TextBlock Text=", " Foreground="White"/>
+                                            <TextBlock Text="{Binding DogInstance.AD}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            <TextBlock Text=", " Foreground="White"/>
+                                            <TextBlock Text="{Binding DogInstance.HZ}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            <TextBlock Text=", " Foreground="White"/>
+                                            <TextBlock Text="{Binding DogInstance.SP}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal"  HorizontalAlignment="center">
+                                            <TextBlock Text="{Binding DogInstance.PedigreeNumber}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            <TextBlock Text=", " Foreground="White"/>
+                                            <TextBlock Text="{Binding DogInstance.DOB, StringFormat=dd/MM/yyyy}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Border>
+
+                <Border Grid.Column="3" BorderThickness="1" BorderBrush="White">
+                    <ItemsControl ItemsSource="{Binding GridColumn3}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Vertical"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Width="180" Height="40.625" 
+                                        Background="{Binding BackgroundColor}"
+                                        BorderThickness="{Binding BorderThickness}"
+                                        BorderBrush="{Binding BorderBrush}">
+                                    <StackPanel VerticalAlignment="Center">
+                                        <StackPanel Orientation="Horizontal"  HorizontalAlignment="center">
+                                            <TextBlock Text="{Binding DogInstance.HD}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            <TextBlock Text=", " Foreground="White"/>
+                                            <TextBlock Text="{Binding DogInstance.AD}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            <TextBlock Text=", " Foreground="White"/>
+                                            <TextBlock Text="{Binding DogInstance.HZ}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            <TextBlock Text=", " Foreground="White"/>
+                                            <TextBlock Text="{Binding DogInstance.SP}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal"  HorizontalAlignment="center">
+                                            <TextBlock Text="{Binding DogInstance.PedigreeNumber}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            <TextBlock Text=", " Foreground="White"/>
+                                            <TextBlock Text="{Binding DogInstance.DOB, StringFormat=dd/MM/yyyy}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Border>
+            </Grid>
+
+            <!-- FamilyTree for the first dog -->
+
+
         </Grid>
     </Grid>
-
 </UserControl>
