@@ -46,20 +46,10 @@ namespace ModernDesign.MVVM.ViewModel
         public List<Dog> FamilyTree { get; set; }
 
 
-
-
-
         public PartnerMatchViewModel()
         {
             dogsRepository = new DogsRepository();
             dogsRepository.GetAll();
-
-/*            ShowFamilyTreeCommand = new RelayCommand(o =>
-            {
-                
-            });
-            BuildGrid1("1");*/
-
         }
 
         public void BuildGrid1(string id)
