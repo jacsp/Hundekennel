@@ -17,8 +17,21 @@ namespace ModernDesign.MVVM.ViewModel
     class PartnerMatchViewModel : ObservableObject
     {
         private readonly DogsRepository dogsRepository;
-/*        private Object selectedText1;
+
+        private Object selectedText1;
         private Object selectedText2;
+
+        // dog 1
+        private ObservableCollection<GridCell> gridColumn0;
+        private ObservableCollection<GridCell> gridColumn1;
+        private ObservableCollection<GridCell> gridColumn2;
+        private ObservableCollection<GridCell> gridColumn3;
+        // dog 2
+        private ObservableCollection<GridCell> gridColumn0Row1;
+        private ObservableCollection<GridCell> gridColumn1Row1;
+        private ObservableCollection<GridCell> gridColumn2Row1;
+        private ObservableCollection<GridCell> gridColumn3Row1;
+
         public Object SelectedText1
         {
             get { return selectedText1; }
@@ -36,13 +49,8 @@ namespace ModernDesign.MVVM.ViewModel
                 selectedText2 = value;
                 OnPropertyChanged(nameof(selectedText2));
             }
-        }*/
-
-        private ObservableCollection<GridCell> gridColumn0 { get; set; }
-        private ObservableCollection<GridCell> gridColumn1 { get; set; }
-        private ObservableCollection<GridCell> gridColumn2 { get; set; }
-        private ObservableCollection<GridCell> gridColumn3 { get; set; }
-
+        }
+        // dog 1
         public ObservableCollection<GridCell> GridColumn0
         {
             get { return gridColumn0; }
@@ -79,12 +87,7 @@ namespace ModernDesign.MVVM.ViewModel
                 OnPropertyChanged(nameof(gridColumn3));
             }
         }
-
-        private ObservableCollection<GridCell> gridColumn0Row1 { get; set; }
-        private ObservableCollection<GridCell> gridColumn1Row1 { get; set; }
-        private ObservableCollection<GridCell> gridColumn2Row1 { get; set; }
-        private ObservableCollection<GridCell> gridColumn3Row1 { get; set; }
-
+        // dog 2
         public ObservableCollection<GridCell> GridColumn0Row1
         {
             get { return gridColumn0Row1; }
@@ -121,6 +124,7 @@ namespace ModernDesign.MVVM.ViewModel
                 OnPropertyChanged(nameof(gridColumn3Row1));
             }
         }
+
 
         public PartnerMatchViewModel()
         {

@@ -33,9 +33,12 @@
                                 IsHitTestVisible="False"
                                 Text="Search">
 
-                                <TextBlock.Style>
+                                <TextBlock.Style >
                                     <Style TargetType="{x:Type TextBlock}">
                                         <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=SearchBox, Path=IsKeyboardFocusWithin}" Value="True">
+                                                <Setter Property="Visibility" Value="Hidden" />
+                                            </DataTrigger>
                                             <DataTrigger Binding="{Binding Text, ElementName=SearchBox}" Value="">
                                                 <Setter Property="Visibility" Value="Visible" />
                                             </DataTrigger>

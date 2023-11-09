@@ -33,6 +33,9 @@ namespace ModernDesign.MVVM.View
                 VM.SelectedText2 = tb_dog2Match.Text;*/
 
                 VM.BuildGrid1(tb_dog1Match.Text.ToString(), tb_dog2Match.Text.ToString());
+
+                tb_dog1Match.Text = "";
+                tb_dog2Match.Text = "";
             }
         }
     }
