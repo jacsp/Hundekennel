@@ -17,6 +17,7 @@ namespace ModernDesign.Theme
         public Thickness BorderThickness { get; set; }
         public Brush BorderBrush { get; set; }
         
+
     }
 
 }

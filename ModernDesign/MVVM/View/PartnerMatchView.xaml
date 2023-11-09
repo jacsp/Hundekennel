@@ -9,7 +9,7 @@
              d:DesignWidth="1000"
              mc:Ignorable="d">
     <UserControl.DataContext>
-        <local1:PartnerMatchViewModel />
+        <local1:PartnerMatchViewModel/>
     </UserControl.DataContext>
 
     <Grid>
@@ -56,7 +56,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Border Grid.Column="0" BorderThickness="1" BorderBrush="White">
-                    <ItemsControl ItemsSource="{Binding GridColumn0}" TargetUpdated="ItemsControl_TargetUpdated">
+                    <ItemsControl ItemsSource="{Binding GridColumn0}" >
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <StackPanel Orientation="Vertical"/>
@@ -91,7 +91,7 @@
                 </Border>
 
                 <Border Grid.Column="1" BorderThickness="1" BorderBrush="White">
-                    <ItemsControl ItemsSource="{Binding GridColumn1}" TargetUpdated="ItemsControl_TargetUpdated">
+                    <ItemsControl ItemsSource="{Binding GridColumn1}" >
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <StackPanel Orientation="Vertical"/>
@@ -126,7 +126,7 @@
                 </Border>
 
                 <Border Grid.Column="2" BorderThickness="1" BorderBrush="White">
-                    <ItemsControl ItemsSource="{Binding GridColumn2}" TargetUpdated="ItemsControl_TargetUpdated">
+                    <ItemsControl ItemsSource="{Binding GridColumn2}" >
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <StackPanel Orientation="Vertical"/>
@@ -161,7 +161,7 @@
                 </Border>
 
                 <Border Grid.Column="3" BorderThickness="1" BorderBrush="White">
-                    <ItemsControl ItemsSource="{Binding GridColumn3}" TargetUpdated="ItemsControl_TargetUpdated">
+                    <ItemsControl ItemsSource="{Binding GridColumn3}" >
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <StackPanel Orientation="Vertical"/>

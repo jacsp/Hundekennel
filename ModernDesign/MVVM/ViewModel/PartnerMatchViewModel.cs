@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using ModernDesign.Theme;
 using System.Windows.Media;
 using System.Windows;
+using System.Windows.Navigation;
 
 namespace ModernDesign.MVVM.ViewModel
 {
@@ -36,15 +37,93 @@ namespace ModernDesign.MVVM.ViewModel
                 OnPropertyChanged(nameof(selectedText2));
             }
         }
-
-        public ObservableCollection<GridCell> GridCells { get; set; }
-        public ObservableCollection<GridCell> GridColumn0 { get; set; }
-        public ObservableCollection<GridCell> GridColumn1 { get; set; }
-        public ObservableCollection<GridCell> GridColumn2 { get; set; }
-        public ObservableCollection<GridCell> GridColumn3 { get; set; }
-        public RelayCommand ShowFamilyTreeCommand { get; set; }
+                public RelayCommand ShowFamilyTreeCommand { get; set; }
         public List<Dog> FamilyTree { get; set; }
+        public ObservableCollection<GridCell> GridCells { get; set; }
 
+        private ObservableCollection<GridCell> gridColumn0 { get; set; }
+        private ObservableCollection<GridCell> gridColumn1 { get; set; }
+        private ObservableCollection<GridCell> gridColumn2 { get; set; }
+        private ObservableCollection<GridCell> gridColumn3 { get; set; }
+
+        public ObservableCollection<GridCell> GridColumn0
+        {
+            get { return gridColumn0; }
+            set
+            {
+                gridColumn0 = value;
+                OnPropertyChanged(nameof(gridColumn0));
+            }
+        }
+        public ObservableCollection<GridCell> GridColumn1
+        {
+            get { return gridColumn1; }
+            set
+            {
+                gridColumn1 = value;
+                OnPropertyChanged(nameof(gridColumn1));
+            }
+        }
+        public ObservableCollection<GridCell> GridColumn2
+        {
+            get { return gridColumn2; }
+            set
+            {
+                gridColumn2 = value;
+                OnPropertyChanged(nameof(gridColumn2));
+            }
+        }
+        public ObservableCollection<GridCell> GridColumn3
+        {
+            get { return gridColumn3; }
+            set
+            {
+                gridColumn3 = value;
+                OnPropertyChanged(nameof(gridColumn3));
+            }
+        }
+
+        private ObservableCollection<GridCell> gridColumn0Row1 { get; set; }
+        private ObservableCollection<GridCell> gridColumn1Row1 { get; set; }
+        private ObservableCollection<GridCell> gridColumn2Row1 { get; set; }
+        private ObservableCollection<GridCell> gridColumn3Row1 { get; set; }
+
+        public ObservableCollection<GridCell> GridColumn0Row1
+        {
+            get { return gridColumn0Row1; }
+            set
+            {
+                gridColumn0Row1 = value;
+                OnPropertyChanged(nameof(gridColumn0Row1));
+            }
+        }
+        public ObservableCollection<GridCell> GridColumn1Row1
+        {
+            get { return gridColumn1Row1; }
+            set
+            {
+                gridColumn1Row1 = value;
+                OnPropertyChanged(nameof(gridColumn1Row1));
+            }
+        }
+        public ObservableCollection<GridCell> GridColumn2Row1
+        {
+            get { return gridColumn2Row1; }
+            set
+            {
+                gridColumn2Row1 = value;
+                OnPropertyChanged(nameof(gridColumn2Row1));
+            }
+        }
+        public ObservableCollection<GridCell> GridColumn3Row1
+        {
+            get { return gridColumn3Row1; }
+            set
+            {
+                gridColumn3Row1 = value;
+                OnPropertyChanged(nameof(gridColumn3Row1));
+            }
+        }
 
         public PartnerMatchViewModel()
         {
@@ -60,7 +139,12 @@ namespace ModernDesign.MVVM.ViewModel
             GridColumn1 = new ObservableCollection<GridCell>();
             GridColumn2 = new ObservableCollection<GridCell>();
             GridColumn3 = new ObservableCollection<GridCell>();
-            
+
+            GridColumn0Row1 = new ObservableCollection<GridCell>();
+            GridColumn1Row1 = new ObservableCollection<GridCell>();
+            GridColumn2Row1 = new ObservableCollection<GridCell>();
+            GridColumn3Row1 = new ObservableCollection<GridCell>();
+
             Dog dog1 = dogsRepository.GetById(id);
             GridColumn0.Add(new GridCell
             {
