@@ -17,7 +17,7 @@ namespace ModernDesign.MVVM.ViewModel
     class PartnerMatchViewModel : ObservableObject
     {
         private readonly DogsRepository dogsRepository;
-        private Object selectedText1;
+/*        private Object selectedText1;
         private Object selectedText2;
         public Object SelectedText1
         {
@@ -36,10 +36,7 @@ namespace ModernDesign.MVVM.ViewModel
                 selectedText2 = value;
                 OnPropertyChanged(nameof(selectedText2));
             }
-        }
-                public RelayCommand ShowFamilyTreeCommand { get; set; }
-        public List<Dog> FamilyTree { get; set; }
-        public ObservableCollection<GridCell> GridCells { get; set; }
+        }*/
 
         private ObservableCollection<GridCell> gridColumn0 { get; set; }
         private ObservableCollection<GridCell> gridColumn1 { get; set; }
@@ -131,9 +128,10 @@ namespace ModernDesign.MVVM.ViewModel
             dogsRepository.GetAll();
         }
 
-        public void BuildGrid1(string id)
+        public void BuildGrid1(string id1, string id2)
         {
-            FamilyTree = dogsRepository.GetFamilyTree(id).ToList();
+            List<Dog> FamilyTree1 = dogsRepository.GetFamilyTree(id1).ToList();
+            List<Dog> FamilyTree2 = dogsRepository.GetFamilyTree(id2).ToList();
 
             GridColumn0 = new ObservableCollection<GridCell>();
             GridColumn1 = new ObservableCollection<GridCell>();
@@ -145,27 +143,23 @@ namespace ModernDesign.MVVM.ViewModel
             GridColumn2Row1 = new ObservableCollection<GridCell>();
             GridColumn3Row1 = new ObservableCollection<GridCell>();
 
-            Dog dog1 = dogsRepository.GetById(id);
+
+            // Adding the 1 dog
+            Dog dog1 = dogsRepository.GetById(id1);
             GridColumn0.Add(new GridCell
             {
                 DogInstance = dog1,
-                BackgroundColor = Brushes.DarkGray,
-                BorderThickness = new Thickness(0.5),
-                BorderBrush = Brushes.Black
             });
 
             int dogsAdded = 0;
 
-            foreach (Dog dog in FamilyTree)
+            foreach (Dog dog in FamilyTree1)
             {
                 if (dogsAdded < 2)
                 {
                     GridColumn1.Add(new GridCell
                     {
                         DogInstance = dog,
-                        BackgroundColor = Brushes.DarkGray,
-                        BorderThickness = new Thickness(0.5),
-                        BorderBrush = Brushes.Black
                     });
                     dogsAdded++;
                 }
@@ -174,9 +168,6 @@ namespace ModernDesign.MVVM.ViewModel
                     GridColumn2.Add(new GridCell
                     {
                         DogInstance = dog,
-                        BackgroundColor = Brushes.DarkGray,
-                        BorderThickness = new Thickness(0.5),
-                        BorderBrush = Brushes.Black
                     });
                     dogsAdded++;
                 }
@@ -185,12 +176,46 @@ namespace ModernDesign.MVVM.ViewModel
                     GridColumn3.Add(new GridCell
                     {
                         DogInstance = dog,
-                        BackgroundColor = Brushes.DarkGray,
-                        BorderThickness = new Thickness(0.5),
-                        BorderBrush = Brushes.Black
                     });
                     dogsAdded++;
                 }                
+            }
+
+            // Adding the 2 dog
+            Dog dog2 = dogsRepository.GetById(id2);
+            GridColumn0Row1.Add(new GridCell
+            {
+                DogInstance = dog2,
+            });
+
+            int dogsAdded2 = 0;
+
+            foreach (Dog dog in FamilyTree2)
+            {
+                if (dogsAdded2 < 2)
+                {
+                    GridColumn1Row1.Add(new GridCell
+                    {
+                        DogInstance = dog,
+                    });
+                    dogsAdded2++;
+                }
+                else if (dogsAdded2 < 6)
+                {
+                    GridColumn2Row1.Add(new GridCell
+                    {
+                        DogInstance = dog,
+                    });
+                    dogsAdded2++;
+                }
+                else if (dogsAdded2 < 14)
+                {
+                    GridColumn3Row1.Add(new GridCell
+                    {
+                        DogInstance = dog,
+                    });
+                    dogsAdded2++;
+                }
             }
         }
     }

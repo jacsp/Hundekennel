@@ -12,12 +12,7 @@ namespace ModernDesign.Theme
     public class GridCell
     {
 
-        public Dog DogInstance { get; set; }  
-        public Brush BackgroundColor { get; set; }
-        public Thickness BorderThickness { get; set; }
-        public Brush BorderBrush { get; set; }
-        
+        public Dog DogInstance { get; set; }
 
     }
-
 }

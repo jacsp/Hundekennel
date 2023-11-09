@@ -27,11 +27,12 @@ namespace ModernDesign.MVVM.View
         }
         private void Match_Button_Click(object sender, RoutedEventArgs e)
         {
-            if (DataContext is PartnerMatchViewModel viewModel)
+            if (DataContext is PartnerMatchViewModel VM)
             {
-                viewModel.SelectedText1 = tb_dog1Match.Text;
-                viewModel.SelectedText2 = tb_dog2Match.Text;
-                viewModel.BuildGrid1(tb_dog1Match.Text);
+                /*VM.SelectedText1 = tb_dog1Match.Text;
+                VM.SelectedText2 = tb_dog2Match.Text;*/
+
+                VM.BuildGrid1(tb_dog1Match.Text.ToString(), tb_dog2Match.Text.ToString());
             }
         }
     }
