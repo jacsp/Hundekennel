@@ -30,9 +30,9 @@ namespace ModernDesign.MVVM.Model.Repositories
             con.Open();
             using SqlCommand cmd = new SqlCommand("INSERT INTO Dogs (PedigreeNumber, Name, DOB, DadPedigreeNumber, " +
                 "MomPedigreeNumber, Gender, IsDead, ChipNumber, DKKTitles, Titles, BreedingStatus, MentalDescription, " +
-                "Picture, HD, AD, HZ, SP, Color, BreedingApproval) VALUES (@PedigreeNumber, @Name, @DOB, @DadPedigreeNumber, " +
+                "Picture, HD, AD, HZ, SP, Color, BreedingApproval, OwnerId) VALUES (@PedigreeNumber, @Name, @DOB, @DadPedigreeNumber, " +
                 "@MomPedigreeNumber, @Gender, @IsDead, @ChipNumber, @DKKTitles, @Titles, @BreedingStatus, @MentalDescription, " +
-                "@Picture, @HD, @AD, @HZ, @SP, @Color, @BreedingApproval)", con);
+                "@Picture, @HD, @AD, @HZ, @SP, @Color, @BreedingApproval, @OwnerId)", con);
 
             cmd.Parameters.Add("@PedigreeNumber", SqlDbType.NVarChar).Value = entity.PedigreeNumber;
             cmd.Parameters.Add("@Name", SqlDbType.NVarChar).Value = entity.Name;
@@ -53,6 +53,7 @@ namespace ModernDesign.MVVM.Model.Repositories
             cmd.Parameters.Add("@SP", SqlDbType.NVarChar).Value = entity.SP;
             cmd.Parameters.Add("@Color", SqlDbType.NVarChar).Value = entity.Color;
             cmd.Parameters.Add("@BreedingApproval", SqlDbType.Bit).Value = entity.BreedingApproval;
+            cmd.Parameters.Add("@OwnerId", SqlDbType.Int).Value = entity.OwnerId;
 
             cmd.ExecuteNonQuery();
 
@@ -100,7 +101,9 @@ namespace ModernDesign.MVVM.Model.Repositories
                         dr["SP"].ToString(),
                         dr["Color"].ToString(),
                         Convert.ToBoolean(dr["BreedingApproval"])
+                        
                     );
+                    dog.OwnerId = Convert.ToInt32(dr["OwnerId"]);
                     dogs.Add(dog);
                 }
             }
@@ -142,6 +145,8 @@ namespace ModernDesign.MVVM.Model.Repositories
                             dr["Color"].ToString(),
                             Convert.ToBoolean(dr["BreedingApproval"])
                         );
+                        dog.OwnerId = Convert.ToInt32(dr["OwnerId"]);
+
                     }
                 }
             }
@@ -173,7 +178,7 @@ namespace ModernDesign.MVVM.Model.Repositories
                 "DadPedigreeNumber = @DadPedigreeNumber, MomPedigreeNumber = @MomPedigreeNumber, " +
                 "Gender = @Gender, IsDead = @IsDead, ChipNumber = @ChipNumber, DKKTitles = @DKKTitles, " +
                 "Titles = @Titles, BreedingStatus = @BreedingStatus, MentalDescription = @MentalDescription, " +
-                "Picture = @Picture, HD = @HD, AD = @AD, HZ = @HZ, SP = @SP, Color = @Color, BreedingApproval = @BreedingApproval " +
+                "Picture = @Picture, HD = @HD, AD = @AD, HZ = @HZ, SP = @SP, Color = @Color, BreedingApproval = @BreedingApproval, OwnerId = @OwnerId " +
                 "WHERE PedigreeNumber = @PedigreeNumber", con);
 
             cmd.Parameters.Add("@PedigreeNumber", SqlDbType.NVarChar).Value = entity.PedigreeNumber;
@@ -195,6 +200,7 @@ namespace ModernDesign.MVVM.Model.Repositories
             cmd.Parameters.Add("@SP", SqlDbType.NVarChar).Value = entity.SP;
             cmd.Parameters.Add("@Color", SqlDbType.NVarChar).Value = entity.Color;
             cmd.Parameters.Add("@BreedingApproval", SqlDbType.Bit).Value = entity.BreedingApproval;
+            cmd.Parameters.Add("@OwnerId", SqlDbType.Int).Value = entity.OwnerId;
 
             cmd.ExecuteNonQuery();
 
@@ -219,6 +225,7 @@ namespace ModernDesign.MVVM.Model.Repositories
                 existingDog.SP = entity.SP;
                 existingDog.Color = entity.Color;
                 existingDog.BreedingApproval = entity.BreedingApproval;
+                existingDog.OwnerId = entity.OwnerId;
 
             }
         }

@@ -33,25 +33,14 @@ namespace ModernDesign.MVVM.Model
         public Dog Mother { get; set; }
         public List<Dog> Parents { get; set; }
 
+        public int OwnerId { get; set; }
+        public DogOwner Owner { get; set; }
 
 
 
-        public Dog(string pedigreeNumber,
-                   string name,
-                   DateTime dOB,
-                   string dadPedigreeNumber,
-                   string momPedigreeNumber,
-                   string gender,
-                   bool isDead)
-        {
-            PedigreeNumber = pedigreeNumber;
-            Name = name;
-            DOB = dOB;
-            DadPedigreeNumber = dadPedigreeNumber;
-            MomPedigreeNumber = momPedigreeNumber;
-            Gender = gender;
-            IsDead = isDead;
-        }
+
+
+        public Dog() { }
 
         public Dog(string pedigreeNumber, string name, DateTime dOB, string dadPedigreeNumber, 
             string momPedigreeNumber, string gender, bool isDead, string chipNumber, 
@@ -77,6 +66,8 @@ namespace ModernDesign.MVVM.Model
             SP = sP;
             Color = color;
             BreedingApproval = breedingApproval;
+            OwnerId = 0;
+            Owner = null;
 
         }
     }

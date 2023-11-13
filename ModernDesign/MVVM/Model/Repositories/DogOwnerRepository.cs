@@ -16,7 +16,7 @@ namespace ModernDesign.MVVM.Model.Repositories
     public class DogOwnerRepository : IDogOwnerRepository
     {
         private readonly string ConnectionString;
-        public ObservableCollection<DogOwner> dogowner = new ObservableCollection<DogOwner>();
+        public ObservableCollection<DogOwner> dogOwners = new ObservableCollection<DogOwner>();
         
         public DogOwnerRepository()
         {
@@ -74,12 +74,12 @@ namespace ModernDesign.MVVM.Model.Repositories
                             Phone = reader.GetString(reader.GetOrdinal("Phone")),
                             Email = reader.GetString(reader.GetOrdinal("Email"))
                         };
-                        dogowner.Add(dogOwner);
+                        dogOwners.Add(dogOwner);
                     }
                 }
             }
 
-            return dogowner;
+            return dogOwners;
         }
 
         public DogOwner GetById(string id)
@@ -100,6 +100,8 @@ namespace ModernDesign.MVVM.Model.Repositories
             }
         }      
 
+
+        // Needs testing
         public void Update(DogOwner entity)
         {
             using (SqlConnection con = new SqlConnection(ConnectionString))
