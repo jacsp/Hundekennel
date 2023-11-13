@@ -8,25 +8,25 @@ namespace ModernDesign.MVVM.Model
 {
     public class Dog
     {
-        public string PedigreeNumber { get; set; }
-        public string Name { get; set; }
-        public DateTime DOB { get; set; }
-        public string? DadPedigreeNumber { get; set; }
-        public string? MomPedigreeNumber { get; set; }
-        public string Gender { get; set; }
+        public string PedigreeNumber { get; set; }//
+        public string Name { get; set; }//
+        public DateTime DOB { get; set; }//
+        public string? DadPedigreeNumber { get; set; }//
+        public string? MomPedigreeNumber { get; set; }//
+        public string Gender { get; set; }//
         public bool IsDead { get; set; }
         // Expanded dog attributes
         public string? ChipNumber { get; set; }//
         public string? DKKTitles { get; set; }//
         public string? Titles { get; set; }//
         public bool BreedingStatus { get; set; }
-        public bool? MentalDescription { get; set; }//
-        public byte[]? Picture { get; set; }//
-        public string? HD { get; set; }
-        public string? AD { get; set; }
-        public string? HZ { get; set; }
-        public string? SP { get; set; }
-        public string? Color { get; set; }
+        public bool? MentalDescription { get; set; }
+        public byte[]? Picture { get; set; }
+        public string? HD { get; set; }//
+        public string? AD { get; set; }//
+        public string? HZ { get; set; }//
+        public string? SP { get; set; }//
+        public string? Color { get; set; }//
         public bool BreedingApproval { get; set; }
 
         public Dog? Father { get; set; }

@@ -15,8 +15,186 @@
             <RowDefinition Height="450"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0">
-            <!---Implement TextBox here -->
+        <Grid Grid.Row="0"  Margin="20,10">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="400"/>
+                <ColumnDefinition Width="380"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            
+
+            <StackPanel Grid.Column="0" Margin="0">
+                
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontWeight="Bold" Foreground="White" Text="Stamtavlenummer"/>
+                    <TextBox x:Name="tb_PedigreeNumber" DockPanel.Dock="Right" Text="{Binding SelectedDog.PedigreeNumber}" IsEnabled="False" 
+                             Margin="26,0,0,0" Width="100" Background="Transparent" BorderThickness="0.5" Foreground="White" FontWeight="Bold"/>
+                    <TextBlock Margin="15,0,5,0" Text="Rediger" Foreground="White"/>
+                    <RadioButton x:Name="rb_Edit" Checked="rb_Edit_Checked" Unchecked="rb_Edit_Unchecked" IsEnabled="True"/>
+                    <TextBlock Margin="10,0,5,0" Text="Tilføj Ny" Foreground="White"/>
+                    <RadioButton x:Name="rb_New" Checked="rb_New_Checked" Unchecked="rb_New_Unchecked" IsEnabled="True"/>
+                </StackPanel>
+
+
+                <StackPanel x:Name="sp_Column0" IsEnabled="False">
+                    
+                <DockPanel Margin="5" >
+                    <TextBlock Text="Navn" Foreground="LightGray" DockPanel.Dock="Left"/>
+                    <TextBox x:Name="tb_Name"  DockPanel.Dock="Right" Text="{Binding SelectedDog.Name}" Margin="5,0" Width="250" Background="Transparent" BorderThickness="0.1" Foreground="White" />
+                    <Border BorderBrush="white" BorderThickness="0.5" Margin="10,0" DockPanel.Dock="Right" HorizontalAlignment="Right"/>
+                </DockPanel>
+                <DockPanel Margin="5" >
+                    <TextBlock Text="Fødseldato" Foreground="LightGray" DockPanel.Dock="Left"/>
+                    <TextBox x:Name="tb_DOB"   DockPanel.Dock="Right" Text="{Binding SelectedDog.DOB, StringFormat=dd/mm/yyyy}" Margin="5,0" Width="250" Background="Transparent" BorderThickness="0.1" Foreground="White" />
+                    <Border BorderBrush="white" BorderThickness="0.5" Margin="10,0" DockPanel.Dock="Right" HorizontalAlignment="Right"/>
+                </DockPanel>
+                <DockPanel Margin="5" >
+                    <TextBlock Text="Køn" Foreground="LightGray" DockPanel.Dock="Left"/>
+                    <TextBox x:Name="tb_Gender"   DockPanel.Dock="Right" Text="{Binding SelectedDog.Gender}" Margin="5,0" Width="250" Background="Transparent" BorderThickness="0.1" Foreground="White" />
+                    <Border BorderBrush="white" BorderThickness="0.5" Margin="10,0" DockPanel.Dock="Right" HorizontalAlignment="Right"/>
+                </DockPanel>
+                <DockPanel Margin="5" >
+                    <TextBlock Text="Color" Foreground="LightGray" DockPanel.Dock="Left"/>
+                    <TextBox x:Name="tb_Color"   DockPanel.Dock="Right" Text="{Binding SelectedDog.Color}" Margin="5,0" Width="250" Background="Transparent" BorderThickness="0.1" Foreground="White" />
+                    <Border BorderBrush="white" BorderThickness="0.5" Margin="10,0" DockPanel.Dock="Right" HorizontalAlignment="Right"/>
+                </DockPanel>
+                <DockPanel Margin="5" >
+                    <TextBlock Text="HD" Foreground="LightGray" DockPanel.Dock="Left"/>
+                    <TextBox x:Name="tb_HD"   DockPanel.Dock="Right" Text="{Binding SelectedDog.HD}" Margin="5,0" Width="250" Background="Transparent" BorderThickness="0.1" Foreground="White" />
+                    <Border BorderBrush="white" BorderThickness="0.5" Margin="10,0" DockPanel.Dock="Right" HorizontalAlignment="Right"/>
+                </DockPanel>
+                <DockPanel Margin="5" >
+                    <TextBlock Text="AD" Foreground="LightGray" DockPanel.Dock="Left"/>
+                    <TextBox x:Name="tb_AD"  DockPanel.Dock="Right" Text="{Binding SelectedDog.AD}" Margin="5,0" Width="250" Background="Transparent" BorderThickness="0.1" Foreground="White" />
+                    <Border BorderBrush="white" BorderThickness="0.5" Margin="10,0" DockPanel.Dock="Right" HorizontalAlignment="Right"/>
+                </DockPanel>
+                <DockPanel Margin="5" >
+                    <TextBlock Text="HZ" Foreground="LightGray" DockPanel.Dock="Left"/>
+                    <TextBox x:Name="tb_HZ"   DockPanel.Dock="Right" Text="{Binding SelectedDog.HZ}" Margin="5,0" Width="250" Background="Transparent" BorderThickness="0.1" Foreground="White" />
+                    <Border BorderBrush="white" BorderThickness="0.5" Margin="10,0" DockPanel.Dock="Right" HorizontalAlignment="Right"/>
+                </DockPanel>
+                <DockPanel Margin="5" >
+                    <TextBlock Text="SP" Foreground="LightGray" DockPanel.Dock="Left"/>
+                    <TextBox x:Name="tb_SP"   DockPanel.Dock="Right" Text="{Binding SelectedDog.SP}" Margin="5,0" Width="250" Background="Transparent" BorderThickness="0.1" Foreground="White" />
+                    <Border BorderBrush="white" BorderThickness="0.5" Margin="10,0" DockPanel.Dock="Right" HorizontalAlignment="Right"/>
+                </DockPanel>
+                <DockPanel Margin="5" >
+                    <TextBlock Text="Chipnummer" Foreground="LightGray" DockPanel.Dock="Left"/>
+                    <TextBox x:Name="tb_ChipNumber"  DockPanel.Dock="Right" Text="{Binding SelectedDog.ChipNumber}" Margin="5,0" Width="250" Background="Transparent" BorderThickness="0.1" Foreground="White" />
+                    <Border BorderBrush="white" BorderThickness="0.5" Margin="10,0" DockPanel.Dock="Right" HorizontalAlignment="Right"/>
+                </DockPanel>
+                </StackPanel>
+            </StackPanel>
+
+            
+            <!---Coloumn 1-->
+            <StackPanel  Grid.Column="1" Margin="5" >
+                <StackPanel x:Name="sp_Column1" IsEnabled="False">
+
+                    <DockPanel Margin="5,0,5,5" >
+                        <TextBlock Text="Dad" Foreground="LightGray" DockPanel.Dock="Left"/>
+                        <TextBox x:Name="tb_Dad"  DockPanel.Dock="Right" Text="{Binding SelectedDog.DadPedigreeNumber}" Margin="5,0" Width="250" Background="Transparent" BorderThickness="0.1" Foreground="White" />
+                        <Border BorderBrush="white" BorderThickness="0.5" Margin="10,0" DockPanel.Dock="Right" HorizontalAlignment="Right"/>
+                    </DockPanel>
+                    <DockPanel Margin="5" >
+                        <TextBlock Text="Mom" Foreground="LightGray" DockPanel.Dock="Left"/>
+                        <TextBox x:Name="tb_Mom"   DockPanel.Dock="Right" Text="{Binding SelectedDog.MomPedigreeNumber}" Margin="5,0" Width="250" Background="Transparent" BorderThickness="0.1" Foreground="White" />
+                        <Border BorderBrush="white" BorderThickness="0.5" Margin="10,0" DockPanel.Dock="Right" HorizontalAlignment="Right"/>
+                    </DockPanel>
+                    <DockPanel Margin="5" >
+                        <TextBlock Text="DKKTitler" Foreground="LightGray" DockPanel.Dock="Left"/>
+                        <TextBox x:Name="tb_DKKTitles"    DockPanel.Dock="Right" Text="{Binding SelectedDog.DKKTitles}" Margin="5,0" Width="250" Background="Transparent" BorderThickness="0.1" Foreground="White" />
+                        <Border BorderBrush="white" BorderThickness="0.5" Margin="10,0" DockPanel.Dock="Right" HorizontalAlignment="Right"/>
+                    </DockPanel>
+                    <DockPanel Margin="5,5,5,1" >
+                        <TextBlock Text="Titler" Foreground="LightGray" DockPanel.Dock="Left"/>
+                        <TextBox x:Name="tb_Titles"   DockPanel.Dock="Right" Text="{Binding SelectedDog.Titles}" Margin="5,0" Width="250" Background="Transparent" BorderThickness="0.1" Foreground="White" />
+                        <Border BorderBrush="white" BorderThickness="0.5" Margin="10,0" DockPanel.Dock="Right" HorizontalAlignment="Right"/>
+                    </DockPanel>
+
+                    <Border BorderBrush="White" BorderThickness="0.3" Margin="5,3,10,3"/>
+
+                    <DockPanel Margin="5,1,5,5" >
+                        <TextBlock Text="Ejer Navn" Foreground="LightGray" DockPanel.Dock="Left"/>
+                        <TextBox x:Name="tb_OwnerName"  DockPanel.Dock="Right" Text="{Binding SelectedDog}" Margin="5,0" Width="250" Background="Transparent" BorderThickness="0.1" Foreground="White" />
+                        <Border BorderBrush="white" BorderThickness="0.5" Margin="10,0" DockPanel.Dock="Right" HorizontalAlignment="Right"/>
+                    </DockPanel>
+                    <DockPanel Margin="5" >
+                        <TextBlock Text="Adresse" Foreground="LightGray" DockPanel.Dock="Left"/>
+                        <TextBox x:Name="tb_OwnerAddres"  DockPanel.Dock="Right" Text="{Binding SelectedDog}" Margin="5,0" Width="250" Background="Transparent" BorderThickness="0.1" Foreground="White" />
+                        <Border BorderBrush="white" BorderThickness="0.5" Margin="10,0" DockPanel.Dock="Right" HorizontalAlignment="Right"/>
+                    </DockPanel>
+                    <DockPanel Margin="5" >
+                        <TextBlock Text="Postnummer" Foreground="LightGray" DockPanel.Dock="Left"/>
+                        <TextBox x:Name="tb_PostalCode"  DockPanel.Dock="Right" Text="{Binding SelectedDog}" Margin="5,0" Width="250" Background="Transparent" BorderThickness="0.1" Foreground="White" />
+                        <Border BorderBrush="white" BorderThickness="0.5" Margin="10,0" DockPanel.Dock="Right" HorizontalAlignment="Right"/>
+                    </DockPanel>
+                    <DockPanel Margin="5" >
+                        <TextBlock Text="By" Foreground="LightGray" DockPanel.Dock="Left"/>
+                        <TextBox x:Name="tb_City"  DockPanel.Dock="Right" Text="{Binding SelectedDog}" Margin="5,0" Width="250" Background="Transparent" BorderThickness="0.1" Foreground="White" />
+                        <Border BorderBrush="white" BorderThickness="0.5" Margin="10,0" DockPanel.Dock="Right" HorizontalAlignment="Right"/>
+                    </DockPanel>
+                    <DockPanel Margin="5" >
+                        <TextBlock Text="Telefon" Foreground="LightGray" DockPanel.Dock="Left"/>
+                        <TextBox x:Name="tb_Phone"  DockPanel.Dock="Right" Text="{Binding SelectedDog}" Margin="5,0" Width="250" Background="Transparent" BorderThickness="0.1" Foreground="White" />
+                        <Border BorderBrush="white" BorderThickness="0.5" Margin="10,0" DockPanel.Dock="Right" HorizontalAlignment="Right"/>
+                    </DockPanel>
+                    <DockPanel Margin="5" >
+                        <TextBlock Text="Email" Foreground="LightGray" DockPanel.Dock="Left"/>
+                        <TextBox x:Name="tb_Email"  DockPanel.Dock="Right" Text="{Binding SelectedDog}" Margin="5,0" Width="250" Background="Transparent" BorderThickness="0.1" Foreground="White" />
+                        <Border BorderBrush="white" BorderThickness="0.5" Margin="10,0" DockPanel.Dock="Right" HorizontalAlignment="Right"/>
+                    </DockPanel>
+                </StackPanel>
+
+            </StackPanel>
+
+            <!--Column 2 Checkboxes-->
+            <StackPanel Grid.Column="2" >
+                <StackPanel x:Name="sp_Column2" IsEnabled="False">
+                    <DockPanel Margin="0,5,0,0">
+                        <TextBlock Text="Er Død" Foreground="LightGray" DockPanel.Dock="Left"/>
+                        <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Right">
+                            <TextBlock Text="Ja" Foreground="LightGray"/>
+                            <RadioButton Margin="3" IsChecked="False"/>
+                            <TextBlock Text="Nej" Foreground="LightGray"/>
+                            <RadioButton  Margin="3" IsChecked="True"/>
+                        </StackPanel>
+                    </DockPanel>
+                    <DockPanel Margin="0,5,0,0">
+                        <TextBlock Text="Avlsstatus" Foreground="LightGray" DockPanel.Dock="Left"/>
+                        <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Right">
+                            <TextBlock Text="Ja" Foreground="LightGray"/>
+                            <RadioButton Margin="3" IsChecked="False"/>
+                            <TextBlock Text="Nej" Foreground="LightGray"/>
+                            <RadioButton  Margin="3" IsChecked="True"/>
+                        </StackPanel>
+                    </DockPanel>
+                    <DockPanel  Margin="0,5,0,0">
+                        <TextBlock Text="MD" Foreground="LightGray" DockPanel.Dock="Left"/>
+                        <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Right">
+                            <TextBlock Text="Ja" Foreground="LightGray"/>
+                            <RadioButton Margin="3" IsChecked="False"/>
+                            <TextBlock Text="Nej" Foreground="LightGray"/>
+                            <RadioButton  Margin="3" IsChecked="True"/>
+                        </StackPanel>
+                    </DockPanel>
+                    <DockPanel  Margin="0,5,0,0">
+                        <TextBlock Text="AK" Foreground="LightGray" DockPanel.Dock="Left"/>
+                        <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Right">
+                            <TextBlock Text="Ja" Foreground="LightGray"/>
+                            <RadioButton Margin="3" IsChecked="False"/>
+                            <TextBlock Text="Nej" Foreground="LightGray"/>
+                            <RadioButton  Margin="3" IsChecked="True"/>
+                        </StackPanel>
+                    </DockPanel>
+                </StackPanel>
+
+            </StackPanel>
+
+
+            
         </Grid>
         
         <StackPanel Grid.Row="1">

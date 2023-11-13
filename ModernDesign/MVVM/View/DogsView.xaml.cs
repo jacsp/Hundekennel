@@ -1,4 +1,5 @@
-﻿using ModernDesign.MVVM.ViewModel;
+﻿using ModernDesign.MVVM.Model;
+using ModernDesign.MVVM.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,8 @@ namespace ModernDesign.MVVM.View
         private DogsViewModel DogsVM = new DogsViewModel();
         public DogsView()
         {
+            DataContext = DogsVM;
+
             InitializeComponent();
 
 
@@ -33,8 +36,42 @@ namespace ModernDesign.MVVM.View
         {
             if (lv_Dogs.SelectedItem != null)
             {
-                DogsVM.SelectedDog = lv_Dogs.SelectedItem;
+                DogsVM.SelectedDog = (Dog)lv_Dogs.SelectedItem;
             }
+            rb_Edit.IsChecked = false;
+            rb_New.IsChecked = false;
+        }
+
+        private void rb_New_Checked(object sender, RoutedEventArgs e)
+        {
+            sp_Column0.IsEnabled = true;
+            sp_Column1.IsEnabled = true;
+            sp_Column2.IsEnabled = true;
+
+
+        }
+
+        private void rb_Edit_Checked(object sender, RoutedEventArgs e)
+        {
+            sp_Column0.IsEnabled = true;
+            sp_Column1.IsEnabled = true;
+            sp_Column2.IsEnabled = true;
+        }
+
+        private void rb_Edit_Unchecked(object sender, RoutedEventArgs e)
+        {
+            sp_Column0.IsEnabled = false;
+            sp_Column1.IsEnabled = false;
+            sp_Column2.IsEnabled = false;
+            rb_New.IsChecked = false;
+        }
+
+        private void rb_New_Unchecked(object sender, RoutedEventArgs e)
+        {
+            sp_Column0.IsEnabled = false;
+            sp_Column1.IsEnabled = false;
+            sp_Column2.IsEnabled = false;
+            rb_Edit.IsChecked = false;
         }
     }
 }

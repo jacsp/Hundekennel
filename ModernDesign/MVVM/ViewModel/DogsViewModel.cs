@@ -12,18 +12,18 @@ namespace ModernDesign.MVVM.ViewModel
 {
     class DogsViewModel : ObservableObject
     {
-        private Object selectedDog;
+        private Dog selectedDog;
         private readonly DogsRepository dogsRepository;
         private readonly DogOwnerRepository ownerRepository;
-
         private ObservableCollection<Dog> dogs;
+
         public ObservableCollection<Dog> Dogs
         {
             get { return dogs; }
             set { dogs = value; }
         }
 
-        public Object SelectedDog
+        public Dog SelectedDog
         {
             get { return selectedDog; }
             set
@@ -72,15 +72,18 @@ namespace ModernDesign.MVVM.ViewModel
         private void AddMockDogs()
         {
             var random = new Random();
-            for (int i = 1; i <= 20; i++)
+            for (int i = 1; i <= 60; i++)
             {
+                var dadNumber = random.Next(1, 21) * 2;  // Random even number between 2 and 40
+                var momNumber = random.Next(1, 21) * 2 + 1;  // Random odd number between 1 and 39
+
                 var dog = new Dog
                 {
                     PedigreeNumber = $"Dog{i}",
                     Name = $"DogName{i}",
                     DOB = DateTime.Now.AddYears(-random.Next(1, 5)),
-                    DadPedigreeNumber = $"DadDog{i}",
-                    MomPedigreeNumber = $"MomDog{i}",
+                    DadPedigreeNumber = $"Dog{dadNumber}",
+                    MomPedigreeNumber = $"Dog{momNumber}",
                     Gender = (i % 2 == 0) ? "Male" : "Female",
                     IsDead = false,
                     ChipNumber = $"Chip{i}",
@@ -101,5 +104,6 @@ namespace ModernDesign.MVVM.ViewModel
                 dogsRepository.Add(dog);
             }
         }
+
     }
 }
