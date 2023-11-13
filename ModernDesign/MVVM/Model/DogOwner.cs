@@ -9,7 +9,7 @@ namespace ModernDesign.MVVM.Model
 {
     public class DogOwner
     {
-        public int DogOwnerId { get; set; }
+        
         public string Name { get; set; }
         public string Address { get; set; }
         public string PostalCode { get; set; }
@@ -22,7 +22,7 @@ namespace ModernDesign.MVVM.Model
 
         public DogOwner() 
         {
-            DogOwnerId = 0;
+            
             Name = "";
             Address = "";
             PostalCode = "";
@@ -35,7 +35,7 @@ namespace ModernDesign.MVVM.Model
         
         public DogOwner(string name, string address, string postalCode, string city, string phone, string email)
         {
-            DogOwnerId = 0;
+            
             Name = name;
             Address = address;
             PostalCode = postalCode;
