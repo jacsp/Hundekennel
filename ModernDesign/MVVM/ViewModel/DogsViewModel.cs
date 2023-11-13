@@ -39,8 +39,8 @@ namespace ModernDesign.MVVM.ViewModel
             ownerRepository = new DogOwnerRepository();
 
             // Add mock data
-            AddMockDogOwners();
-            AddMockDogs();
+            //AddMockDogOwners();
+            //AddMockDogs();
 
 
             ownerRepository.GetAll();
@@ -88,13 +88,14 @@ namespace ModernDesign.MVVM.ViewModel
                     Titles = $"Titles{i}",
                     BreedingStatus = true,
                     MentalDescription = true,
+                    Picture = new byte[0],
                     HD = $"HD{i}",
                     AD = $"AD{i}",
                     HZ = $"HZ{i}",
                     SP = $"SP{i}",
                     Color = $"Color{i}",
                     BreedingApproval = true,
-                    OwnerId = i // Assuming OwnerId is sequential for simplicity
+                    OwnerId = 146 + i // Assuming OwnerId is sequential for simplicity
                 };
 
                 dogsRepository.Add(dog);

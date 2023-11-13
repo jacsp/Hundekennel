@@ -53,7 +53,7 @@ namespace ModernDesign.MVVM.Model.Repositories
             cmd.Parameters.Add("@SP", SqlDbType.NVarChar).Value = entity.SP;
             cmd.Parameters.Add("@Color", SqlDbType.NVarChar).Value = entity.Color;
             cmd.Parameters.Add("@BreedingApproval", SqlDbType.Bit).Value = entity.BreedingApproval;
-            cmd.Parameters.Add("@OwnerId", SqlDbType.Int).Value = entity.OwnerId;
+            cmd.Parameters.Add("@OwnerId", SqlDbType.Int).Value = (object)entity.OwnerId ?? DBNull.Value;
 
             cmd.ExecuteNonQuery();
 
