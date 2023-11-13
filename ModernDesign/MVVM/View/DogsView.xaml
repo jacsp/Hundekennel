@@ -150,7 +150,7 @@
 
             </StackPanel>
 
-            <!--Column 2 Checkboxes-->
+            <!--Column 2 Checkboxes and buttons-->
             <StackPanel Grid.Column="2" >
                 <StackPanel x:Name="sp_Column2" IsEnabled="False">
                     <DockPanel Margin="0,5,0,0">
@@ -190,6 +190,12 @@
                         </StackPanel>
                     </DockPanel>
                 </StackPanel>
+
+                <Button x:Name="bt_Update" IsEnabled="False" Height="35" Width="100" Content="Updater" Background="Transparent"
+                         Margin="20,60,20,20" BorderThickness="1.5" BorderBrush="White" Foreground="White" />
+
+                <Button x:Name="bt_Save" IsEnabled="False" Height="35" Width="100" Content="Gem" Background="White" Foreground="Black"
+                         Margin="20,0,20,20" BorderThickness="1.5" BorderBrush="Black" FontWeight="Bold" />
 
             </StackPanel>
 
