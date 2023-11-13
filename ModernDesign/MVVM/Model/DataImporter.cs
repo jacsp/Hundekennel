@@ -87,7 +87,7 @@ namespace ModernDesign.MVVM.Model
 
                                     dogsRepository.Add(new Dog(pedigree, name, dob, dad, mom, gender,
                                         isDead, null, dKKTitles, titles, breedingStatus, mentalDescription,
-                                        null, hD, aD, hZ, sP, color, breedingApproval));
+                                        null, hD, aD, hZ, sP, color, breedingApproval, email));
                                 }
                             }
                         }
