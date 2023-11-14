@@ -47,7 +47,6 @@ namespace ModernDesign.MVVM.View
             sp_Column0.IsEnabled = true;
             sp_Column1.IsEnabled = true;
             sp_Column2.IsEnabled = true;
-            rb_New.IsChecked = false;
 
         }
 
@@ -64,7 +63,6 @@ namespace ModernDesign.MVVM.View
             sp_Column0.IsEnabled = false;
             sp_Column1.IsEnabled = false;
             sp_Column2.IsEnabled = false;
-            rb_New.IsChecked = false;
             bt_Update.IsEnabled = false;
         }
 
@@ -73,7 +71,6 @@ namespace ModernDesign.MVVM.View
             sp_Column0.IsEnabled = false;
             sp_Column1.IsEnabled = false;
             sp_Column2.IsEnabled = false;
-            rb_Edit.IsChecked = false;
         }
     }
 }

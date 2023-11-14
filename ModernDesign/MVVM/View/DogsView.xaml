@@ -118,32 +118,32 @@
 
                     <DockPanel Margin="5,1,5,5" >
                         <TextBlock Text="Ejer Navn" Foreground="LightGray" DockPanel.Dock="Left"/>
-                        <TextBox x:Name="tb_OwnerName"  DockPanel.Dock="Right" Text="{Binding SelectedDog}" Margin="5,0" Width="250" Background="Transparent" BorderThickness="0.1" Foreground="White" />
+                        <TextBox x:Name="tb_OwnerName"  DockPanel.Dock="Right" Text="{Binding SelectedDog.Owner.Name}" Margin="5,0" Width="250" Background="Transparent" BorderThickness="0.1" Foreground="White" />
                         <Border BorderBrush="white" BorderThickness="0.5" Margin="10,0" DockPanel.Dock="Right" HorizontalAlignment="Right"/>
                     </DockPanel>
                     <DockPanel Margin="5" >
                         <TextBlock Text="Adresse" Foreground="LightGray" DockPanel.Dock="Left"/>
-                        <TextBox x:Name="tb_OwnerAddres"  DockPanel.Dock="Right" Text="{Binding SelectedDog}" Margin="5,0" Width="250" Background="Transparent" BorderThickness="0.1" Foreground="White" />
+                        <TextBox x:Name="tb_OwnerAddres"  DockPanel.Dock="Right" Text="{Binding SelectedDog.Owner.Address}" Margin="5,0" Width="250" Background="Transparent" BorderThickness="0.1" Foreground="White" />
                         <Border BorderBrush="white" BorderThickness="0.5" Margin="10,0" DockPanel.Dock="Right" HorizontalAlignment="Right"/>
                     </DockPanel>
                     <DockPanel Margin="5" >
                         <TextBlock Text="Postnummer" Foreground="LightGray" DockPanel.Dock="Left"/>
-                        <TextBox x:Name="tb_PostalCode"  DockPanel.Dock="Right" Text="{Binding SelectedDog}" Margin="5,0" Width="250" Background="Transparent" BorderThickness="0.1" Foreground="White" />
+                        <TextBox x:Name="tb_PostalCode"  DockPanel.Dock="Right" Text="{Binding SelectedDog.Owner.PostalCode}" Margin="5,0" Width="250" Background="Transparent" BorderThickness="0.1" Foreground="White" />
                         <Border BorderBrush="white" BorderThickness="0.5" Margin="10,0" DockPanel.Dock="Right" HorizontalAlignment="Right"/>
                     </DockPanel>
                     <DockPanel Margin="5" >
                         <TextBlock Text="By" Foreground="LightGray" DockPanel.Dock="Left"/>
-                        <TextBox x:Name="tb_City"  DockPanel.Dock="Right" Text="{Binding SelectedDog}" Margin="5,0" Width="250" Background="Transparent" BorderThickness="0.1" Foreground="White" />
+                        <TextBox x:Name="tb_City"  DockPanel.Dock="Right" Text="{Binding SelectedDog.Owner.City}" Margin="5,0" Width="250" Background="Transparent" BorderThickness="0.1" Foreground="White" />
                         <Border BorderBrush="white" BorderThickness="0.5" Margin="10,0" DockPanel.Dock="Right" HorizontalAlignment="Right"/>
                     </DockPanel>
                     <DockPanel Margin="5" >
                         <TextBlock Text="Telefon" Foreground="LightGray" DockPanel.Dock="Left"/>
-                        <TextBox x:Name="tb_Phone"  DockPanel.Dock="Right" Text="{Binding SelectedDog}" Margin="5,0" Width="250" Background="Transparent" BorderThickness="0.1" Foreground="White" />
+                        <TextBox x:Name="tb_Phone"  DockPanel.Dock="Right" Text="{Binding SelectedDog.Owner.Phone}" Margin="5,0" Width="250" Background="Transparent" BorderThickness="0.1" Foreground="White" />
                         <Border BorderBrush="white" BorderThickness="0.5" Margin="10,0" DockPanel.Dock="Right" HorizontalAlignment="Right"/>
                     </DockPanel>
                     <DockPanel Margin="5" >
                         <TextBlock Text="Email" Foreground="LightGray" DockPanel.Dock="Left"/>
-                        <TextBox x:Name="tb_Email"  DockPanel.Dock="Right" Text="{Binding SelectedDog}" Margin="5,0" Width="250" Background="Transparent" BorderThickness="0.1" Foreground="White" />
+                        <TextBox x:Name="tb_Email"  DockPanel.Dock="Right" Text="{Binding SelectedDog.Owner.Email}" Margin="5,0" Width="250" Background="Transparent" BorderThickness="0.1" Foreground="White" />
                         <Border BorderBrush="white" BorderThickness="0.5" Margin="10,0" DockPanel.Dock="Right" HorizontalAlignment="Right"/>
                     </DockPanel>
                 </StackPanel>

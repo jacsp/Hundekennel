@@ -42,18 +42,14 @@ namespace ModernDesign.MVVM.ViewModel
             //AddMockDogOwners();
             //AddMockDogs();
 
-
-            ownerRepository.GetAll();
-            dogsRepository.GetAll();
+            //dogsRepository.GetAll();
             dogs = dogsRepository.dogs;
-
-
 
         }
 
         private void AddMockDogOwners()
         {
-            for (int i = 1; i <= 20; i++)
+            for (int i = 1; i <= 60; i++)
             {
                 var owner = new DogOwner
                 {
@@ -98,7 +94,7 @@ namespace ModernDesign.MVVM.ViewModel
                     SP = $"SP{i}",
                     Color = $"Color{i}",
                     BreedingApproval = true,
-                    //OwnerId = 146 + i // Assuming OwnerId is sequential for simplicity
+                    Email = $"owner{i}@example.com"
                 };
 
                 dogsRepository.Add(dog);

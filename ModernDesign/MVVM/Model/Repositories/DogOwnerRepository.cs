@@ -108,7 +108,32 @@ namespace ModernDesign.MVVM.Model.Repositories
 
         public DogOwner GetById(string id)
         {
-            throw new NotImplementedException();
+            DogOwner dogOwner = null;
+
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("spGetDogOwnerById", con);
+                cmd.Parameters.AddWithValue("@Email", id);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        dogOwner = new DogOwner
+                        {
+                            Name = reader.GetString(reader.GetOrdinal("Name")),
+                            Address = reader.GetString(reader.GetOrdinal("Address")),
+                            PostalCode = reader.GetString(reader.GetOrdinal("PostalCode")),
+                            City = reader.GetString(reader.GetOrdinal("City")),
+                            Phone = reader.GetString(reader.GetOrdinal("Phone")),
+                            Email = reader.GetString(reader.GetOrdinal("Email"))
+                        };
+                    }
+                }
+            }
+            return dogOwner;
         }
 
 

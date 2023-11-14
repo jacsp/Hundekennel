@@ -14,7 +14,10 @@ namespace ModernDesign.MVVM.Model.Repositories
     public class DogsRepository : IDogsRepository
     {
         private readonly string ConnectionString;
+        
         public ObservableCollection<Dog> dogs = new ObservableCollection<Dog>();
+
+        private DogOwnerRepository ownerRepo = new DogOwnerRepository();
 
         public DogsRepository()
         {
@@ -100,10 +103,19 @@ namespace ModernDesign.MVVM.Model.Repositories
                         dr["HZ"].ToString(),
                         dr["SP"].ToString(),
                         dr["Color"].ToString(),
-                        Convert.ToBoolean(dr["BreedingApproval"])
-                        
+                        Convert.ToBoolean(dr["BreedingApproval"]),
+                        Convert.ToString(dr["Email"])
                     );
-                    dog.Email = Convert.ToString(dr["Email"]);
+                    if (!string.IsNullOrEmpty(dog.Email))
+                    {
+                        DogOwner owner = ownerRepo.GetById(dog.Email);
+
+                        if (owner != null)
+                        {
+                            dog.Owner = owner;
+                        }
+                    }
+
                     dogs.Add(dog);
                 }
             }
@@ -143,10 +155,10 @@ namespace ModernDesign.MVVM.Model.Repositories
                             dr["HZ"].ToString(),
                             dr["SP"].ToString(),
                             dr["Color"].ToString(),
-                            Convert.ToBoolean(dr["BreedingApproval"])
+                            Convert.ToBoolean(dr["BreedingApproval"]),
+                            Convert.ToString(dr["Email"])
                         );
-                        dog.Email = Convert.ToString(dr["Email"]);
-
+                        
                     }
                 }
             }

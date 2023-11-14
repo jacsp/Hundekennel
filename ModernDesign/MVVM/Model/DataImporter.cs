@@ -96,7 +96,7 @@ namespace ModernDesign.MVVM.Model
             }
             catch (Exception e)
             {
-                Console.WriteLine("Fi le could not be read");
+                Console.WriteLine("File could not be read");
                 Console.WriteLine(e.Message);
             }
         }
