@@ -22,7 +22,6 @@ namespace ModernDesign.MVVM.Model
 
         public DogOwner() 
         {
-            
             Name = "";
             Address = "";
             PostalCode = "";
@@ -35,7 +34,6 @@ namespace ModernDesign.MVVM.Model
         
         public DogOwner(string name, string address, string postalCode, string city, string phone, string email)
         {
-            
             Name = name;
             Address = address;
             PostalCode = postalCode;
