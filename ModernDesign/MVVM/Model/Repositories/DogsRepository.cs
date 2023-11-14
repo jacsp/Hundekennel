@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.Data;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Windows.Controls.Primitives;
 
 namespace ModernDesign.MVVM.Model.Repositories
 {
@@ -15,7 +16,7 @@ namespace ModernDesign.MVVM.Model.Repositories
     {
         private readonly string ConnectionString;
         
-        public ObservableCollection<Dog> dogs = new ObservableCollection<Dog>();
+        public ObservableCollection<Dog> dogs;
 
         private DogOwnerRepository ownerRepo = new DogOwnerRepository();
 
@@ -73,54 +74,117 @@ namespace ModernDesign.MVVM.Model.Repositories
             throw new NotImplementedException();
         }
 
+
         public IEnumerable<Dog> GetAll()
         {
             dogs = new ObservableCollection<Dog>();
 
             using SqlConnection con = new SqlConnection(ConnectionString);
             con.Open();
-            using SqlCommand cmd = new SqlCommand("SELECT * FROM Dogs", con);
+
+            using SqlCommand cmd = new SqlCommand("SELECT * FROM DogsWithOwners", con);
+
             using (SqlDataReader dr = cmd.ExecuteReader())
             {
                 while (dr.Read())
                 {
-                    Dog dog = new Dog(
-                        dr["PedigreeNumber"].ToString(),
-                        dr["Name"].ToString(),
-                        Convert.ToDateTime(dr["DOB"]),
-                        dr["DadPedigreeNumber"].ToString(),
-                        dr["MomPedigreeNumber"].ToString(),
-                        dr["Gender"].ToString(),
-                        Convert.ToBoolean(dr["IsDead"]),
-                        dr["ChipNumber"].ToString(),
-                        dr["DKKTitles"].ToString(),
-                        dr["Titles"].ToString(),
-                        Convert.ToBoolean(dr["BreedingStatus"]),
-                        Convert.ToBoolean(dr["MentalDescription"]),
-                        (byte[])dr["Picture"],
-                        dr["HD"].ToString(),
-                        dr["AD"].ToString(),
-                        dr["HZ"].ToString(),
-                        dr["SP"].ToString(),
-                        dr["Color"].ToString(),
-                        Convert.ToBoolean(dr["BreedingApproval"]),
-                        Convert.ToString(dr["Email"])
-                    );
-                    if (!string.IsNullOrEmpty(dog.Email))
+                    Dog dog = new Dog
                     {
-                        DogOwner owner = ownerRepo.GetById(dog.Email);
-
-                        if (owner != null)
+                        PedigreeNumber = dr["PedigreeNumber"].ToString(),
+                        Name = dr["DogName"].ToString(),  // Assuming an alias 'DogName' in the view
+                        DOB = Convert.ToDateTime(dr["DOB"]),
+                        DadPedigreeNumber = dr["DadPedigreeNumber"].ToString(),
+                        MomPedigreeNumber = dr["MomPedigreeNumber"].ToString(),
+                        Gender = dr["Gender"].ToString(),
+                        IsDead = Convert.ToBoolean(dr["IsDead"]),
+                        ChipNumber = dr["ChipNumber"].ToString(),
+                        DKKTitles = dr["DKKTitles"].ToString(),
+                        Titles = dr["Titles"].ToString(),
+                        BreedingStatus = Convert.ToBoolean(dr["BreedingStatus"]),
+                        MentalDescription = Convert.ToBoolean(dr["MentalDescription"]),
+                        Picture = (byte[])dr["Picture"],
+                        HD = dr["HD"].ToString(),
+                        AD = dr["AD"].ToString(),
+                        HZ = dr["HZ"].ToString(),
+                        SP = dr["SP"].ToString(),
+                        Color = dr["Color"].ToString(),
+                        BreedingApproval = Convert.ToBoolean(dr["BreedingApproval"]),
+                        Email = dr["DogEmail"].ToString(),
+                        Owner = new DogOwner
                         {
-                            dog.Owner = owner;
+                            Name = dr["OwnerName"].ToString(),
+                            Address = dr["OwnerAddress"].ToString(),
+                            PostalCode = dr["OwnerPostalCode"].ToString(),
+                            City = dr["OwnerCity"].ToString(),
+                            Phone = dr["OwnerPhone"].ToString(),
+                            Email = dr["OwnerEmail"].ToString()
                         }
-                    }
+                    };
 
                     dogs.Add(dog);
                 }
             }
+
             return dogs;
         }
+
+        /*        public IEnumerable<Dog> GetAll()
+                {
+                    dogs = new ObservableCollection<Dog>();
+
+                    using SqlConnection con = new SqlConnection(ConnectionString);
+                    con.Open();
+                    using SqlCommand cmd = new SqlCommand("SELECT * FROM DogsWithOwners", con);
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            Dog dog = new Dog(
+                                dr["PedigreeNumber"].ToString(),
+                                dr["Name"].ToString(),
+                                Convert.ToDateTime(dr["DOB"]),
+                                dr["DadPedigreeNumber"].ToString(),
+                                dr["MomPedigreeNumber"].ToString(),
+                                dr["Gender"].ToString(),
+                                Convert.ToBoolean(dr["IsDead"]),
+                                dr["ChipNumber"].ToString(),
+                                dr["DKKTitles"].ToString(),
+                                dr["Titles"].ToString(),
+                                Convert.ToBoolean(dr["BreedingStatus"]),
+                                Convert.ToBoolean(dr["MentalDescription"]),
+                                (byte[])dr["Picture"],
+                                dr["HD"].ToString(),
+                                dr["AD"].ToString(),
+                                dr["HZ"].ToString(),
+                                dr["SP"].ToString(),
+                                dr["Color"].ToString(),
+                                Convert.ToBoolean(dr["BreedingApproval"]),
+                                Convert.ToString(dr["Email"])
+
+                            );
+                            dog.Owner = new DogOwner(
+                                dr["OwnerName"].ToString(),
+                                dr["OwnerAddress"].ToString(),
+                                dr["OwnerPostalCode"].ToString(),
+                                dr["OwnerCity"].ToString(),
+                                dr["OwnerPhone"].ToString(),
+                                dr["OwnerEmail"].ToString()
+                                );
+                            *//*if (!string.IsNullOrEmpty(dog.Email))
+                            {
+                                DogOwner owner = ownerRepo.GetById(dog.Email);
+
+                                if (owner != null)
+                                {
+                                    dog.Owner = owner;
+                                }
+                            }*//*
+
+                            dogs.Add(dog);
+                        }
+                    }
+                    return dogs;
+                }*/
 
         public Dog GetById(string id)
         {
@@ -277,6 +341,39 @@ namespace ModernDesign.MVVM.Model.Repositories
 
             return dog1AndDog2FamilyTree;
         }
+
+
+
+
+        public void GetFamilyTreeFromDatabase(string id)
+        {
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+                con.Open();
+
+                // Use a query to call the function
+                string query = "SELECT * FROM dbo.GetAncestorsWithInfo(@id)";
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            // Access the data using reader
+                            string pedigreeNumber = reader["PedigreeNumber"].ToString();
+                            string name = reader["Name"].ToString();
+                            // Add other columns as needed
+                            // ...
+                        }
+                    }
+                }
+            }
+        }
+
+
 
         public IEnumerable<Dog> GetFamilyTree(string dog1Id)
         {

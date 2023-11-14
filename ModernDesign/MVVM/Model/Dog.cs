@@ -70,5 +70,33 @@ namespace ModernDesign.MVVM.Model
             Email = email;
 
         }
+        public Dog(string pedigreeNumber, string name, DateTime dOB, string dadPedigreeNumber,
+            string momPedigreeNumber, string gender, bool isDead, string chipNumber,
+            string dKKTitles, string titles, bool breedingStatus, bool mentalDescription,
+            byte[] picture, string hD, string aD, string hZ, string sP, string color, bool breedingApproval, string email, DogOwner owner)
+        {
+            PedigreeNumber = pedigreeNumber;
+            Name = name;
+            DOB = dOB;
+            DadPedigreeNumber = dadPedigreeNumber;
+            MomPedigreeNumber = momPedigreeNumber;
+            Gender = gender;
+            IsDead = isDead;
+            ChipNumber = chipNumber;
+            DKKTitles = dKKTitles;
+            Titles = titles;
+            BreedingStatus = breedingStatus;
+            MentalDescription = mentalDescription;
+            Picture = picture;
+            HD = hD;
+            AD = aD;
+            HZ = hZ;
+            SP = sP;
+            Color = color;
+            BreedingApproval = breedingApproval;
+            Owner = owner;
+            Email = email;
+
+        }
     }
 }

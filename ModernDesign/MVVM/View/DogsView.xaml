@@ -9,7 +9,7 @@
     d:DesignWidth="1000"
     mc:Ignorable="d">
     
-    <Grid>
+    <Grid x:Name="Grid">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="450"/>
@@ -38,7 +38,7 @@
                 </StackPanel>
 
 
-                <StackPanel x:Name="sp_Column0" IsEnabled="False">
+                <StackPanel x:Name="sp_Column0" IsEnabled="False" >
                     
                 <DockPanel Margin="5" >
                     <TextBlock Text="Navn" Foreground="LightGray" DockPanel.Dock="Left"/>
@@ -56,7 +56,7 @@
                     <Border BorderBrush="white" BorderThickness="0.5" Margin="10,0" DockPanel.Dock="Right" HorizontalAlignment="Right"/>
                 </DockPanel>
                 <DockPanel Margin="5" >
-                    <TextBlock Text="Color" Foreground="LightGray" DockPanel.Dock="Left"/>
+                    <TextBlock Text="Farve" Foreground="LightGray" DockPanel.Dock="Left"/>
                     <TextBox x:Name="tb_Color"   DockPanel.Dock="Right" Text="{Binding SelectedDog.Color}" Margin="5,0" Width="250" Background="Transparent" BorderThickness="0.1" Foreground="White" />
                     <Border BorderBrush="white" BorderThickness="0.5" Margin="10,0" DockPanel.Dock="Right" HorizontalAlignment="Right"/>
                 </DockPanel>
@@ -94,12 +94,12 @@
                 <StackPanel x:Name="sp_Column1" IsEnabled="False">
 
                     <DockPanel Margin="5,0,5,5" >
-                        <TextBlock Text="Dad" Foreground="LightGray" DockPanel.Dock="Left"/>
+                        <TextBlock Text="Far" Foreground="LightGray" DockPanel.Dock="Left"/>
                         <TextBox x:Name="tb_Dad"  DockPanel.Dock="Right" Text="{Binding SelectedDog.DadPedigreeNumber}" Margin="5,0" Width="250" Background="Transparent" BorderThickness="0.1" Foreground="White" />
                         <Border BorderBrush="white" BorderThickness="0.5" Margin="10,0" DockPanel.Dock="Right" HorizontalAlignment="Right"/>
                     </DockPanel>
                     <DockPanel Margin="5" >
-                        <TextBlock Text="Mom" Foreground="LightGray" DockPanel.Dock="Left"/>
+                        <TextBlock Text="Mor" Foreground="LightGray" DockPanel.Dock="Left"/>
                         <TextBox x:Name="tb_Mom"   DockPanel.Dock="Right" Text="{Binding SelectedDog.MomPedigreeNumber}" Margin="5,0" Width="250" Background="Transparent" BorderThickness="0.1" Foreground="White" />
                         <Border BorderBrush="white" BorderThickness="0.5" Margin="10,0" DockPanel.Dock="Right" HorizontalAlignment="Right"/>
                     </DockPanel>
@@ -157,7 +157,7 @@
                         <TextBlock Text="Er Død" Foreground="LightGray" DockPanel.Dock="Left"/>
                         <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Right">
                             <TextBlock Text="Ja" Foreground="LightGray"/>
-                            <RadioButton Margin="3" IsChecked="False"/>
+                            <RadioButton x:Name="rb_IsDead" Margin="3" IsChecked="False"/>
                             <TextBlock Text="Nej" Foreground="LightGray"/>
                             <RadioButton  Margin="3" IsChecked="True"/>
                         </StackPanel>
@@ -166,7 +166,7 @@
                         <TextBlock Text="Avlsstatus" Foreground="LightGray" DockPanel.Dock="Left"/>
                         <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Right">
                             <TextBlock Text="Ja" Foreground="LightGray"/>
-                            <RadioButton Margin="3" IsChecked="False"/>
+                            <RadioButton x:Name="rb_BreedingStatus" Margin="3" IsChecked="False"/>
                             <TextBlock Text="Nej" Foreground="LightGray"/>
                             <RadioButton  Margin="3" IsChecked="True"/>
                         </StackPanel>
@@ -175,7 +175,7 @@
                         <TextBlock Text="MD" Foreground="LightGray" DockPanel.Dock="Left"/>
                         <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Right">
                             <TextBlock Text="Ja" Foreground="LightGray"/>
-                            <RadioButton Margin="3" IsChecked="False"/>
+                            <RadioButton x:Name="rb_MentalDescription" Margin="3" IsChecked="False"/>
                             <TextBlock Text="Nej" Foreground="LightGray"/>
                             <RadioButton  Margin="3" IsChecked="True"/>
                         </StackPanel>
@@ -184,18 +184,23 @@
                         <TextBlock Text="AK" Foreground="LightGray" DockPanel.Dock="Left"/>
                         <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Right">
                             <TextBlock Text="Ja" Foreground="LightGray"/>
-                            <RadioButton Margin="3" IsChecked="False"/>
+                            <RadioButton x:Name="rb_BreedingApproval" Margin="3" IsChecked="False"/>
                             <TextBlock Text="Nej" Foreground="LightGray"/>
                             <RadioButton  Margin="3" IsChecked="True"/>
                         </StackPanel>
                     </DockPanel>
                 </StackPanel>
 
-                <Button x:Name="bt_Update" IsEnabled="False" Height="35" Width="100" Content="Updater" Background="Transparent"
-                         Margin="20,60,20,20" BorderThickness="1.5" BorderBrush="White" Foreground="White" />
+                <StackPanel Orientation="Horizontal" Margin="0,20">
+                    <Button x:Name="bt_Update" IsEnabled="False" Height="30" Width="60" Content="Updater" Background="Transparent"
+                             Margin="5" BorderThickness="1.5" BorderBrush="White" Foreground="White" Click="bt_Update_Click" />
 
-                <Button x:Name="bt_Save" IsEnabled="False" Height="35" Width="100" Content="Gem" Background="White" Foreground="Black"
-                         Margin="20,0,20,20" BorderThickness="1.5" BorderBrush="Black" FontWeight="Bold" />
+                    <Button x:Name="bt_Save" IsEnabled="False" Height="30" Width="60" Content="Gem" Background="Transparent"
+                             Margin="5" BorderThickness="1.5" BorderBrush="White" Foreground="White" Click="bt_Save_Click" />
+                </StackPanel>
+
+                <Button x:Name="bt_Load" Content="LOAD DATA" BorderThickness="2.5" BorderBrush="White" Foreground="White" Background="Black"
+                        Margin="0,40" Height="45" Width="125" Click="bt_Load_Click"/>
 
             </StackPanel>
 
@@ -223,7 +228,7 @@
                                 <GridViewColumn Header="HZ" Width="60" DisplayMemberBinding="{Binding HZ}" />
                                 <GridViewColumn Header="SP" Width="60" DisplayMemberBinding="{Binding SP}" />
                                 <GridViewColumn Header="Er Død" Width="60" DisplayMemberBinding="{Binding IsDead}" />
-                                <GridViewColumn Header="Avlsstatus" Width="80" DisplayMemberBinding="{Binding BreedingStatus}" />
+                                <GridViewColumn Header="Ejer" Width="80" DisplayMemberBinding="{Binding Owner.Name}" />
                                 <GridViewColumn Header="Far" Width="60" DisplayMemberBinding="{Binding DadPedigreeNumber}" />
                                 <GridViewColumn Header="Mor" Width="60" DisplayMemberBinding="{Binding MomPedigreeNumber}" />
                             </GridView>
