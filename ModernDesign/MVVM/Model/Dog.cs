@@ -14,7 +14,7 @@ namespace ModernDesign.MVVM.Model
         public string? DadPedigreeNumber { get; set; }//
         public string? MomPedigreeNumber { get; set; }//
         public string? Gender { get; set; }//
-        public bool? IsDead { get; set; }
+        public bool IsDead { get; set; }
         // Expanded dog attributes
         public string? ChipNumber { get; set; }//
         public string? DKKTitles { get; set; }//
@@ -66,7 +66,9 @@ namespace ModernDesign.MVVM.Model
             SP = sP;
             Color = color;
             BreedingApproval = breedingApproval;
+            Owner = null;
             Email = email;
+
         }
     }
 }

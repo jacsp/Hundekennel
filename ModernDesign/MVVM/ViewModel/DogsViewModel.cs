@@ -98,7 +98,7 @@ namespace ModernDesign.MVVM.ViewModel
                     SP = $"SP{i}",
                     Color = $"Color{i}",
                     BreedingApproval = true,
-                    OwnerId = 146 + i // Assuming OwnerId is sequential for simplicity
+                    //OwnerId = 146 + i // Assuming OwnerId is sequential for simplicity
                 };
 
                 dogsRepository.Add(dog);
