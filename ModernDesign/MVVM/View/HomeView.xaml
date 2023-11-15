@@ -17,7 +17,18 @@
             Text="Hjem" />
 
         <StackPanel Orientation="Horizontal">
-            <Border Width="400" Height="200">
+
+            <Border Width="400" Height="300" Margin="50">
+                <Border.Background>
+                    <ImageBrush ImageSource="/Images/Boxer.jpg" Stretch="UniformToFill"/>
+                </Border.Background>
+
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,400,300" />
+                </Border.Clip>
+            </Border>
+
+            <Border Width="400" Height="300">
 
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
@@ -30,7 +41,7 @@
                     <RectangleGeometry
                         RadiusX="10"
                         RadiusY="10"
-                        Rect="0,0,400,200" />
+                        Rect="0,0,400,300" />
                 </Border.Clip>
 
                 <Grid>
@@ -53,31 +64,15 @@
                 </Grid>
             </Border>
 
-            <Border
-                Width="200"
-                Height="200"
-                Margin="45,0,0,0"
-                CornerRadius="10">
-
-                <Border.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                        <GradientStop Offset="0.0" Color="#3aa0ff" />
-                        <GradientStop Offset="1" Color="BlueViolet" />
-                    </LinearGradientBrush>
-                </Border.Background>
-            </Border>
+            
         </StackPanel>
-        <StackPanel>
-            <TextBlock
-                Margin="0,10"
-                FontSize="18"
-                Foreground="White"
-                Text="Senest Tilføjet" />
+        <StackPanel Margin="50,30">
+
 
             <StackPanel Orientation="Horizontal">
                 <StackPanel.Resources>
                     <Style TargetType="{x:Type Border}">
-                        <Setter Property="Margin" Value="15,0,0,0" />
+                        <Setter Property="Margin" Value="85,0,0,0" />
                     </Style>
                 </StackPanel.Resources>
 
@@ -86,13 +81,18 @@
                     Height="150"
                     Margin="0"
                     Background="#26B2EB"
-                    CornerRadius="10" />
+                    CornerRadius="10" >
+                    <RadioButton Width="150" Height="150" Command="{Binding DogsViewCommand}" Background="Transparent" Content="Hvis Oversigt" BorderThickness="0" Padding="5,60" FontSize="17" FontWeight="Bold" Foreground="White"/>
+                </Border>
 
                 <Border
                     Width="150"
                     Height="150"
                     Background="#267BEB"
-                    CornerRadius="10" />
+                    CornerRadius="10" >
+                    <RadioButton Width="150" Height="150" Command="{Binding PartnerMatchCommand}" Background="Transparent" Content="Match Hunde" BorderThickness="0" Padding="5,60" FontSize="17" FontWeight="Bold" Foreground="White"/>
+
+                </Border>
 
                 <Border
                     Width="150"
