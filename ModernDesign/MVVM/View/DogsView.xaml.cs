@@ -40,6 +40,7 @@ namespace ModernDesign.MVVM.View
             }
             rb_Edit.IsChecked = false;
             rb_New.IsChecked = false;
+            rb_NewOwner.IsChecked = false;
         }
 
         private void rb_New_Checked(object sender, RoutedEventArgs e)
