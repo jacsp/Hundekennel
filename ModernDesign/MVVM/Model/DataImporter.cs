@@ -28,6 +28,7 @@ namespace ModernDesign.MVVM.Model
             connectionString = config.GetConnectionString("MyDBConnection");
         }
 
+        
         public void AddDogFromFile(string filePath)
         {
             string worksheetName = "Sheet1"; // Name of the worksheet
@@ -96,7 +97,7 @@ namespace ModernDesign.MVVM.Model
             }
             catch (Exception e)
             {
-                Console.WriteLine("Fi le could not be read");
+                Console.WriteLine("File could not be read");
                 Console.WriteLine(e.Message);
             }
         }

@@ -9,7 +9,7 @@ namespace ModernDesign.MVVM.Model
 {
     public class DogOwner
     {
-        public int DogOwnerId { get; set; }
+        
         public string Name { get; set; }
         public string Address { get; set; }
         public string PostalCode { get; set; }

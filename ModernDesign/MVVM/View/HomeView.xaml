@@ -8,6 +8,7 @@
     d:DesignHeight="725"
     d:DesignWidth="1000"
     mc:Ignorable="d">
+
     <StackPanel>
         <TextBlock
             Margin="0,0,0,20"
@@ -17,7 +18,18 @@
             Text="Hjem" />
 
         <StackPanel Orientation="Horizontal">
-            <Border Width="400" Height="200">
+
+            <Border Width="400" Height="300" Margin="50">
+                <Border.Background>
+                    <ImageBrush ImageSource="/Images/Boxer.jpg" Stretch="UniformToFill"/>
+                </Border.Background>
+
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,400,300" />
+                </Border.Clip>
+            </Border>
+
+            <Border Width="400" Height="300">
 
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
@@ -30,81 +42,120 @@
                     <RectangleGeometry
                         RadiusX="10"
                         RadiusY="10"
-                        Rect="0,0,400,200" />
+                        Rect="0,0,400,300" />
                 </Border.Clip>
 
                 <Grid>
                     <StackPanel>
                         <TextBlock
                             x:Name="tbBorder1Title"
-                            Margin="20,10,10,0"
+                            Margin="50,10,10,0"
                             FontSize="28"
                             Foreground="White"
-                            Text="Tilføj" />
+                            Text="Tilføj nye hunde fra fil" />
                         <TextBlock
                             x:Name="tbBorder1Header"
                             Margin="20,10,10,0"
                             FontSize="18"
                             Foreground="White"
-                            Text="Tilføj nye hunde fra fil eller manuelt" />
+                            Text="Eller brug oversigten til at tilføje manuelt" />
+
+                        <StackPanel Margin="50,20">
+                            <Border Margin="0,10">
+                                <Border.Clip>
+                                    <RectangleGeometry
+                                        RadiusX="10"
+                                        RadiusY="10"
+                                        Rect="0,0,300,30" />
+                                </Border.Clip>
+                                <TextBox x:Name="tb_AddFile" Width="300" Height="30" BorderThickness="0" Text="Tilføj filvejen her"
+                                    Background="White" Foreground="Black" VerticalContentAlignment="Center" MouseDoubleClick="tb_AddFile_MouseDoubleClick"/>
+                            </Border>
+
+                            <Border>
+                                <Border.Clip>
+                                    <RectangleGeometry
+                                        RadiusX="10"
+                                        RadiusY="10"
+                                        Rect="0,0,300,100" />
+                                </Border.Clip>
+                                <Button x:Name="bt_AddFile" Content="Tilføj Excel fil" Width="300" Height="100" BorderThickness="0" 
+                                        Background="Transparent" Foreground="White" FontSize="40" FontWeight="Bold" Click="bt_AddFile_Click"/>
+                            </Border>
+                            
+                        </StackPanel>
+                        
                     </StackPanel>
 
 
                 </Grid>
             </Border>
 
-            <Border
-                Width="200"
-                Height="200"
-                Margin="45,0,0,0"
-                CornerRadius="10">
-
-                <Border.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                        <GradientStop Offset="0.0" Color="#3aa0ff" />
-                        <GradientStop Offset="1" Color="BlueViolet" />
-                    </LinearGradientBrush>
-                </Border.Background>
-            </Border>
+            
         </StackPanel>
-        <StackPanel>
-            <TextBlock
-                Margin="0,10"
-                FontSize="18"
-                Foreground="White"
-                Text="Senest Tilføjet" />
+        <StackPanel Margin="50,30">
+
 
             <StackPanel Orientation="Horizontal">
                 <StackPanel.Resources>
                     <Style TargetType="{x:Type Border}">
-                        <Setter Property="Margin" Value="15,0,0,0" />
+                        <Setter Property="Margin" Value="85,0,0,0" />
                     </Style>
                 </StackPanel.Resources>
 
                 <Border
                     Width="150"
                     Height="150"
-                    Margin="0"
-                    Background="#26B2EB"
-                    CornerRadius="10" />
+                    Margin="0">
+
+                    <Border.Background>
+                        <ImageBrush ImageSource="/Images/BoxerElla.jpg" Stretch="UniformToFill"/>
+                    </Border.Background>
+
+                    <Border.Clip>
+                        <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,150,150" />
+                    </Border.Clip>
+                </Border>
 
                 <Border
                     Width="150"
                     Height="150"
-                    Background="#267BEB"
-                    CornerRadius="10" />
+                    Background="#26B2EB">
+
+                    <Border.Clip>
+                        <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,150,150" />
+                    </Border.Clip>
+
+                    <Button x:Name="bt_ShowOverview" Background="Transparent" Content="Seriøs opdræt &#10;med respekt for racen" FontSize="12" FontWeight="Bold" />
+                </Border>
 
                 <Border
                     Width="150"
                     Height="150"
-                    Background="#263DEB"
-                    CornerRadius="10" />
+                    Background="#267BEB">
+
+                    <Border.Clip>
+                        <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,150,150" />
+                    </Border.Clip>
+
+                    <Button x:Name="bt_ShowPartnerMatch" Background="Transparent" Content="Match Hunde &#10;Se Oversigt &#10;Opdater Database" FontSize="12" FontWeight="Bold" />
+
+                </Border>
+
+                
 
                 <Border
                     Width="150"
-                    Height="150"
-                    Background="#5426EB"
-                    CornerRadius="10" />
+                    Height="150">
+
+                    <Border.Background>
+                        <ImageBrush ImageSource="/Images/BoxerUthyla.jpg" Stretch="UniformToFill"/>
+                    </Border.Background>
+
+                    <Border.Clip>
+                        <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,150,150" />
+                    </Border.Clip>
+                </Border>
 
             </StackPanel>
         </StackPanel>

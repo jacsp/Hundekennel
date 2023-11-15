@@ -129,7 +129,6 @@ namespace ModernDesign.MVVM.ViewModel
         public PartnerMatchViewModel()
         {
             dogsRepository = new DogsRepository();
-            dogsRepository.GetAll();
         }
 
         public void BuildGrid1(string id1, string id2)

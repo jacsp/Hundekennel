@@ -52,5 +52,13 @@ namespace ModernDesign.MVVM.ViewModel
             });
         }
 
+        public void DogsViewChange()
+        {
+            DogsViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = DogsVM;
+            });
+        }
+
     }
 }
