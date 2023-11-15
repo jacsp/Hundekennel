@@ -12,8 +12,8 @@ namespace ModernDesign.MVVM.ViewModel
 {
     class DogsViewModel : ObservableObject
     {
+        private readonly DogsRepository dogsRepository;
         private Dog selectedDog;
-        public DogsRepository dogsRepository;
         private ObservableCollection<Dog> dogs;
 
         public ObservableCollection<Dog> Dogs

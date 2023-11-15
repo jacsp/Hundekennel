@@ -28,6 +28,7 @@ namespace ModernDesign.MVVM.Model
             connectionString = config.GetConnectionString("MyDBConnection");
         }
 
+        
         public void AddDogFromFile(string filePath)
         {
             string worksheetName = "Sheet1"; // Name of the worksheet
