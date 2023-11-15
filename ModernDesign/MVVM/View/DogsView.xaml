@@ -114,8 +114,11 @@
                         <Border BorderBrush="white" BorderThickness="0.5" Margin="10,0" DockPanel.Dock="Right" HorizontalAlignment="Right"/>
                     </DockPanel>
 
-                    <Border BorderBrush="White" BorderThickness="0.3" Margin="5,3,10,3"/>
+                </StackPanel>
+                <Border BorderBrush="White" BorderThickness="0.3" Margin="5,3,10,3"/>
 
+                    <StackPanel x:Name="sp_OwnerInfo" IsEnabled="False">
+                        
                     <DockPanel Margin="5,1,5,5" >
                         <TextBlock Text="Ejer Navn" Foreground="LightGray" DockPanel.Dock="Left"/>
                         <TextBox x:Name="tb_OwnerName"  DockPanel.Dock="Right" Text="{Binding SelectedDog.Owner.Name}" Margin="5,0" Width="250" Background="Transparent" BorderThickness="0.1" Foreground="White" />
@@ -146,7 +149,9 @@
                         <TextBox x:Name="tb_Email"  DockPanel.Dock="Right" Text="{Binding SelectedDog.Owner.Email}" Margin="5,0" Width="250" Background="Transparent" BorderThickness="0.1" Foreground="White" />
                         <Border BorderBrush="white" BorderThickness="0.5" Margin="10,0" DockPanel.Dock="Right" HorizontalAlignment="Right"/>
                     </DockPanel>
-                </StackPanel>
+                        
+                    </StackPanel>
+                
 
             </StackPanel>
 
@@ -199,8 +204,13 @@
                              Margin="5" BorderThickness="1.5" BorderBrush="White" Foreground="White" Click="bt_Save_Click" />
                 </StackPanel>
 
-                <Button x:Name="bt_Load" Content="LOAD DATA" BorderThickness="2.5" BorderBrush="White" Foreground="White" Background="Black"
-                        Margin="0,40" Height="45" Width="125" Click="bt_Load_Click"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="30,0,5,0" Text="Tilføj Ny Ejer" Foreground="White"/>
+                    <RadioButton x:Name="rb_NewOwner" Checked="rb_NewOwner_Checked" Unchecked="rb_NewOwner_Unchecked" IsEnabled="True"/>
+                </StackPanel>
+
+                <Button x:Name="bt_SaveOwner" Content="Gem Ejer" BorderThickness="2.5" BorderBrush="White" Foreground="White" Background="Black"
+                        Margin="0,20" Height="45" Width="125" Click="bt_SaveOwner_Click" IsEnabled="False"/>
 
             </StackPanel>
 
@@ -209,28 +219,29 @@
         </Grid>
         
         <StackPanel Grid.Row="1">
-            <Grid Height="450" Width="900">
+            <Grid Height="450" Width="950">
                 <Border BorderThickness="1" BorderBrush="White">
 
-                    <ListView Width="900" BorderThickness="0" 
+                    <ListView Width="950" BorderThickness="0" 
                   x:Name="lv_Dogs" ItemsSource="{Binding Dogs}" 
                               SelectionChanged="lv_Dogs_SelectionChanged">
 
-                        <ListView.View>
+                        <ListView.View >
                             <GridView >
                                 <GridViewColumn Header="Stamtavle" Width="80" DisplayMemberBinding="{Binding PedigreeNumber}" />
-                                <GridViewColumn Header="Navn" Width="60" DisplayMemberBinding="{Binding Name}" />
-                                <GridViewColumn Header="Fødselsdato" Width="100" DisplayMemberBinding="{Binding DOB, StringFormat=dd/mm/yyyy}" />
-                                <GridViewColumn Header="Køn" Width="60" DisplayMemberBinding="{Binding Gender}" />
-                                <GridViewColumn Header="Farve" Width="60" DisplayMemberBinding="{Binding Color}" />
+                                <GridViewColumn Header="Navn" Width="80" DisplayMemberBinding="{Binding Name}" />
+                                <GridViewColumn Header="Fødselsdato" Width="80" DisplayMemberBinding="{Binding DOB, StringFormat=dd/mm/yyyy}" />
+                                <GridViewColumn Header="Køn" Width="80" DisplayMemberBinding="{Binding Gender}" />
+                                <GridViewColumn Header="Farve" Width="80" DisplayMemberBinding="{Binding Color}" />
+                                <GridViewColumn Header="Ejer" Width="80" DisplayMemberBinding="{Binding Owner.Name}" />
+                                <GridViewColumn Header="Far" Width="80" DisplayMemberBinding="{Binding DadPedigreeNumber}" />
+                                <GridViewColumn Header="Mor" Width="80" DisplayMemberBinding="{Binding MomPedigreeNumber}" />
                                 <GridViewColumn Header="HD" Width="60" DisplayMemberBinding="{Binding HD}" />
                                 <GridViewColumn Header="AD" Width="60" DisplayMemberBinding="{Binding AD}" />
                                 <GridViewColumn Header="HZ" Width="60" DisplayMemberBinding="{Binding HZ}" />
                                 <GridViewColumn Header="SP" Width="60" DisplayMemberBinding="{Binding SP}" />
                                 <GridViewColumn Header="Er Død" Width="60" DisplayMemberBinding="{Binding IsDead}" />
-                                <GridViewColumn Header="Ejer" Width="80" DisplayMemberBinding="{Binding Owner.Name}" />
-                                <GridViewColumn Header="Far" Width="60" DisplayMemberBinding="{Binding DadPedigreeNumber}" />
-                                <GridViewColumn Header="Mor" Width="60" DisplayMemberBinding="{Binding MomPedigreeNumber}" />
+                                
                             </GridView>
                         </ListView.View>
 

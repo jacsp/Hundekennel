@@ -8,11 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Fonts\" />
-    <Folder Include="Images\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="ClosedXML" Version="0.102.1" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.2" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />

@@ -1,4 +1,5 @@
 ﻿using ModernDesign.MVVM.Model;
+using ModernDesign.MVVM.Model.Repositories;
 using ModernDesign.MVVM.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -51,6 +52,8 @@ namespace ModernDesign.MVVM.View
 
             lv_Dogs.SelectedItem = null;
             ClearAllTextBoxes();
+
+            
         }
 
 
@@ -61,6 +64,7 @@ namespace ModernDesign.MVVM.View
             sp_Column1.IsEnabled = true;
             sp_Column2.IsEnabled = true;
             bt_Update.IsEnabled = true;
+            rb_NewOwner.IsChecked = false;
         }
 
         private void rb_Edit_Unchecked(object sender, RoutedEventArgs e)
@@ -80,41 +84,57 @@ namespace ModernDesign.MVVM.View
             bt_Save.IsEnabled = false;
         }
 
-        private void bt_Load_Click(object sender, RoutedEventArgs e)
-        {
-            DogsVM.LoadData();
-            lv_Dogs.ItemsSource = DogsVM.Dogs;
-        }
-
         private void bt_Update_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {            
+            DogsVM.UpdateSelectedDog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"There was an error:\n\n{ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void bt_Save_Click(object sender, RoutedEventArgs e)
         {
-            // Create a new Dog instance and set its properties based on TextBox values
-            Dog newDog = new Dog
+            try
             {
-                PedigreeNumber = tb_PedigreeNumber.Text,
-                Name = tb_Name.Text,
-                DOB = DateTime.ParseExact(tb_DOB.Text.ToString(), "dd/MM/yyyy", CultureInfo.InvariantCulture),
-                DadPedigreeNumber = tb_Dad.Text,
-                MomPedigreeNumber = tb_Mom.Text,
-                Gender = tb_Gender.Text,
-                IsDead = rb_IsDead.IsChecked ?? false,
-                ChipNumber = tb_ChipNumber.Text,
-                DKKTitles = tb_DKKTitles.Text,
-                Titles = tb_Titles.Text,
-                BreedingStatus = rb_BreedingStatus.IsChecked ?? false,  
-                MentalDescription = rb_MentalDescription.IsChecked ?? false, 
-                Picture = new byte[0],
-            };
+                DogsVM.SelectedDog = new Dog
+                {
+                    PedigreeNumber = string.IsNullOrEmpty(tb_PedigreeNumber.Text) ? string.Empty : tb_PedigreeNumber.Text,
+                    Name = string.IsNullOrEmpty(tb_Name.Text) ? string.Empty : tb_Name.Text,
+                    DOB = string.IsNullOrEmpty(tb_DOB.Text) ? DateTime.MinValue : DateTime.ParseExact(tb_DOB.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture),
+                    DadPedigreeNumber = string.IsNullOrEmpty(tb_Dad.Text) ? string.Empty : tb_Dad.Text,
+                    MomPedigreeNumber = string.IsNullOrEmpty(tb_Mom.Text) ? string.Empty : tb_Mom.Text,
+                    Gender = string.IsNullOrEmpty(tb_Gender.Text) ? string.Empty : tb_Gender.Text,
+                    IsDead = rb_IsDead.IsChecked ?? false,
+                    ChipNumber = string.IsNullOrEmpty(tb_ChipNumber.Text) ? string.Empty : tb_ChipNumber.Text,
+                    DKKTitles = string.IsNullOrEmpty(tb_DKKTitles.Text) ? string.Empty : tb_DKKTitles.Text,
+                    Titles = string.IsNullOrEmpty(tb_Titles.Text) ? string.Empty : tb_Titles.Text,
+                    BreedingStatus = rb_BreedingStatus.IsChecked ?? false,
+                    MentalDescription = rb_MentalDescription.IsChecked ?? false,
+                    Picture = new byte[0],
 
-            // Call the Add method from DogsRepository to add the new dog to the database
-            DogsVM.dogsRepository.Add(newDog);
+                    HD = string.IsNullOrEmpty(tb_HD.Text) ? string.Empty : tb_HD.Text,
+                    AD = string.IsNullOrEmpty(tb_AD.Text) ? string.Empty : tb_AD.Text,
+                    HZ = string.IsNullOrEmpty(tb_HZ.Text) ? string.Empty : tb_HZ.Text,
+                    SP = string.IsNullOrEmpty(tb_SP.Text) ? string.Empty : tb_SP.Text,
+                    Color = string.IsNullOrEmpty(tb_Color.Text) ? string.Empty : tb_Color.Text,
+                    BreedingApproval = rb_BreedingApproval.IsChecked ?? false,
 
+                };
+
+                DogsVM.AddSelectedDog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"There was an error:\n\n{ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            ClearAllTextBoxes();
         }
+
 
         // Add this method to clear text in all TextBoxes
         private void ClearAllTextBoxes()
@@ -146,6 +166,29 @@ namespace ModernDesign.MVVM.View
                 }
             }
         }
+
+        private void rb_NewOwner_Checked(object sender, RoutedEventArgs e)
+        {
+            bt_SaveOwner.IsEnabled = true;
+            sp_OwnerInfo.IsEnabled = true;
+        }
+        private void rb_NewOwner_Unchecked(object sender, RoutedEventArgs e)
+        {
+            bt_SaveOwner.IsEnabled = false;
+            sp_OwnerInfo.IsEnabled = false;
+        }
+
+        private void bt_SaveOwner_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"There was an error:\n\n{ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
 
     }
 }

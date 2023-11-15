@@ -25,7 +25,6 @@ namespace ModernDesign.MVVM.ViewModel
                 OnPropertyChanged(nameof(dogs));
             }
         }
-
         public Dog SelectedDog
         {
             get { return selectedDog; }
@@ -39,18 +38,17 @@ namespace ModernDesign.MVVM.ViewModel
         public DogsViewModel()
         {
             dogsRepository = new DogsRepository();
-
             dogsRepository.GetAll();
             dogs = dogsRepository.dogs;
-
         }
 
-        public void LoadData()
+        public void UpdateSelectedDog()
         {
-            dogsRepository.GetAll();
-            dogs = dogsRepository.dogs;
-
+            dogsRepository.Update(SelectedDog);
         }
-
+        public void AddSelectedDog()
+        {
+            dogsRepository.Add(SelectedDog);
+        }
     }
 }
