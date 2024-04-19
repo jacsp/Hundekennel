@@ -16,7 +16,7 @@ namespace ModernDesign.MVVM.Model.Repositories
     {
         private readonly string ConnectionString;
         
-        public ObservableCollection<Dog> dogs;
+        public ObservableCollection<Dog> dogs = new ObservableCollection<Dog>();
 
         private DogOwnerRepository ownerRepo = new DogOwnerRepository();
 
